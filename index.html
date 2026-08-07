@@ -1,181 +1,1430 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="pageTitle">CSCA Basics — 底层知识图谱 · 基础补强 · 考试训练</title>
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icon.svg" type="image/svg+xml" />
-  <meta name="theme-color" content="#002147" />
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>StudyChina Navigator — Apply to Chinese Universities</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#aec7f6",
+                        "on-secondary-container": "#fffbff",
+                        "on-primary-container": "#708ab5",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "primary": "#000a1e",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#002147",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "outline": "#74777f",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "on-background": "#191c1e",
+                        "tertiary": "#000b1b",
+                        "background": "#f7f9fb",
+                        "inverse-primary": "#aec7f6",
+                        "on-secondary-fixed-variant": "#92001c",
+                        "on-surface-variant": "#44474e",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface-tint": "#465f88",
+                        "secondary-container": "#e0283c",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#7a8aa2",
+                        "surface-dim": "#d8dadc",
+                        "on-error": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "outline-variant": "#c4c6cf",
+                        "secondary-fixed": "#ffdad8",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#122236",
+                        "on-secondary-fixed": "#410007",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb3b1",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary": "#bb0027",
+                        "surface-container": "#eceef0",
+                        "error": "#ba1a1a",
+                        "neutral-card": "#e2e8f0",
+                        "neutral-input": "#cbd5e1",
+                        "neutral-divider": "#f1f5f9",
+                        "tertiary-fixed": "#d3e4fe",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "primary-fixed": "#d6e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "display-lg": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["\"Source Serif 4\""],
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    },
+                    "boxShadow": {
+                        "overlay": "0px 4px 20px rgba(0, 33, 71, 0.08)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+  [hidden] { display: none !important; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { background-color: #f7f9fb; }
+  .navtab.active { color: #002147; border-bottom: 2px solid #bb0027; }
+  /* modal scroll lock helper */
+  body.modal-open { overflow: hidden; }
+  /* chips */
+  .chip { transition: all .15s ease; }
+  .chip.active { background: #002147; color: #fff; border-color: #002147; }
+  .chip-csca.active { background: #bb0027; border-color: #bb0027; }
+  .card-hover:hover { background: #f2f4f6; }
+  :root {
+    --tip-surface: #ffffff;
+    --tip-border: #e2e8f0;
+    --tip-shadow: 0 8px 30px rgba(16,24,40,.12);
+    --tip-radius: 12px;
+    --tip-accent: #bb0027;
+    --tip-accent-soft: #fff5f5;
+    --tip-muted: #64748b;
+    --tip-text: #1e293b;
+  }
+  .tier-badge {
+    display: inline-flex; align-items: center;
+    padding: 2px 10px; border-radius: 999px;
+    font-size: 12px; font-weight: 600;
+    color: #7a4a12; background: #fbeede; border: 1px solid #ecd6b8;
+  }
+  .school-tip {
+    position: absolute; z-index: 9999;
+    max-width: 320px; width: max-content;
+    background: var(--tip-surface); border: 1px solid var(--tip-border);
+    border-radius: var(--tip-radius); box-shadow: var(--tip-shadow);
+    padding: 14px 16px; pointer-events: none;
+    color: var(--tip-text);
+  }
+  .school-tip[hidden] { display: none; }
+  .school-tip .tip-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .school-tip .tip-badge {
+    width: 34px; height: 38px; flex-shrink: 0; border-radius: 4px;
+    color: #fff; font-weight: 700; font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; line-height: 1.1;
+  }
+  .school-tip .tip-name { font-weight: 700; font-size: 14px; }
+  .school-tip .tip-en { color: var(--tip-muted); font-size: 12px; }
+  .school-tip .tip-sec { margin-top: 8px; }
+  .school-tip .tip-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .5px;
+    color: var(--tip-accent); font-weight: 700; margin-bottom: 4px;
+  }
+  .school-tip .tip-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .school-tip .tip-chip {
+    background: var(--tip-accent-soft); color: var(--tip-accent);
+    border: 1px solid #fecdd3; border-radius: 999px;
+    padding: 2px 9px; font-size: 12px; font-weight: 600;
+  }
+  .school-tip .tip-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .school-tip .tip-list li { display: flex; align-items: flex-start; gap: 6px; color: var(--tip-text); font-size: 12.5px; line-height: 1.4; }
+  .school-tip .tip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tip-accent); margin-top: 6px; flex-shrink: 0; }
+  /* progress bar */
+  .pbar { height: 8px; background: #e0e3e5; border-radius: 9999px; overflow: hidden; }
+  .pbar > i { display: block; height: 100%; background: #002147; transition: width .25s ease; }
+  /* card quick actions: favorite + compare */
+  .card-actions { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; z-index: 5; }
+  .card-actions button {
+    width: 30px; height: 30px; border-radius: 999px; display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,.92); border: 1px solid #e2e8f0; color: #64748b; cursor: pointer;
+    font-size: 16px; line-height: 1; transition: all .15s;
+  }
+  .card-actions button:hover { border-color: #bb0027; color: #bb0027; }
+  .card-actions button.on { background: #bb0027; border-color: #bb0027; color: #fff; }
+  article.card-hover { position: relative; }
+  /* compare bar */
+  #cmpBar {
+    position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 70;
+    background: #002147; color: #fff; border-radius: 999px; padding: 10px 12px 10px 20px;
+    display: flex; align-items: center; gap: 14px; box-shadow: 0 10px 30px rgba(0,10,30,.35);
+    font-size: 13.5px; font-weight: 600;
+  }
+  #cmpBar .cmp-names { max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #dbe4f0; font-weight: 500; }
+  #cmpBar button { border-radius: 999px; padding: 7px 16px; font-size: 13px; font-weight: 600; cursor: pointer; border: 0; }
+  #cmpBar .cmp-go { background: #bb0027; color: #fff; }
+  #cmpBar .cmp-go:hover { background: #a30022; }
+  #cmpBar .cmp-clear { background: rgba(255,255,255,.16); color: #fff; }
+  #cmpBar .cmp-clear:hover { background: rgba(255,255,255,.26); }
+  /* compare modal table */
+  .cmp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .cmp-table th, .cmp-table td { border: 1px solid #e2e8f0; padding: 10px 12px; vertical-align: top; text-align: left; }
+  .cmp-table th { background: #f2f4f6; color: #44474e; text-transform: uppercase; font-size: 11.5px; letter-spacing: .04em; white-space: nowrap; }
+  .cmp-table td.rowhead { background: #f8fafc; font-weight: 600; color: #002147; white-space: nowrap; }
+  .cmp-table .cmp-name { font-weight: 700; color: #002147; }
+  .cmp-chip { display: inline-block; background: #e0e3e5; color: #191c1e; border-radius: 4px; padding: 1px 7px; font-size: 11.5px; margin: 2px 2px 0 0; }
+  /* applications view */
+  .app-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+  .app-card .app-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .app-card select, .app-card input[type="date"], .app-card textarea {
+    border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 10px; font-size: 13.5px; width: 100%; background: #f8fafc;
+  }
+  .app-card textarea { resize: vertical; min-height: 54px; }
+  .app-docs label { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #191c1e; cursor: pointer; }
+  .app-docs input { width: 16px; height: 16px; accent-color: #bb0027; }
+  .app-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .app-stat { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px; }
+  .app-remove { background: none; border: 1px solid #e2e8f0; color: #bb0027; border-radius: 8px; padding: 6px 12px; font-size: 12.5px; cursor: pointer; }
+  .app-remove:hover { background: #fff5f5; }
+  .app-suggest-btn { background: #fff; border: 1px solid #002147; color: #002147; border-radius: 9999px; padding: 8px 16px; font-size: 13.5px; font-weight: 600; cursor: pointer; transition: background .15s ease; }
+  .app-suggest-btn:hover { background: #002147; color: #fff; }
+</style>
 </head>
-<body>
-  <header class="cl-top">
-    <div class="cl-top-inner">
-      <a class="cl-brand" href="#">
-        <span class="cl-logo"><span class="l-zh">学</span><span class="cl-logo-en">C</span></span>
-        <span class="cl-brand-name">CSCA Basics</span>
-      </a>
-      <div class="cl-search">
-        <span class="cl-search-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
-        <input type="text" id="clQuickSearch" placeholder="搜索全部内容…" data-i18n-ph="searchPlaceholder" autocomplete="off" />
-      </div>
-      <div class="cl-head-actions">
-        <span class="cl-countdown" id="clCountdown" hidden role="button" tabindex="0"></span>
-        <div class="cl-lang" id="clLang" role="group" aria-label="语言切换 Language">
-          <button class="cl-lang-btn active" data-lang="zh">中文</button>
-          <button class="cl-lang-btn" data-lang="en">EN</button>
-        </div>
-        <button class="cl-report-btn" id="clReportBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="8"/><rect x="12" y="6" width="3" height="12"/><rect x="17" y="13" width="3" height="5"/></svg> <span data-i18n="myProgress">我的进度</span></button>
-        <a class="cl-back" href="../index.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> <span data-i18n="backToNav">回到导航站</span></a>
-        <span class="cl-avatar" data-i18n-title="learner" data-i18n-aria="learner"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-      </div>
-    </div>
-  </header>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-fixed-dim selection:text-primary">
 
-  <div class="cl-shell">
-    <aside class="cl-side" id="clNav" data-i18n-aria="mainNav">
-      <div class="cl-side-group">
-        <p class="cl-side-label" data-i18n="sideModules">学习模块</p>
-        <button class="cl-tab active" data-panel="root"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg><span class="cl-tab-tx">根基</span><span class="cl-tab-en">Root</span></button>
-        <button class="cl-tab" data-panel="kb"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg><span class="cl-tab-tx">基础课</span><span class="cl-tab-en">Knowledge</span></button>
-        <button class="cl-tab" data-panel="found"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg><span class="cl-tab-tx">地基</span><span class="cl-tab-en">Foundation</span></button>
-        <button class="cl-tab" data-panel="cn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="1"/><path d="m13 3-2 8h4l-2-8Z"/><path d="M5 11h14"/><path d="M7 19h10"/></svg><span class="cl-tab-tx">学术中文</span><span class="cl-tab-en">Chinese</span></button>
-        <button class="cl-tab" data-panel="calc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg><span class="cl-tab-tx">手算训练</span><span class="cl-tab-en">Mental Math</span></button>
+<!-- ═══ Top Navigation ═══ -->
+<header class="bg-surface-container-lowest border-b border-neutral-card sticky top-0 z-40">
+  <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+    <a class="flex items-center" href="#">
+      <img src="assets/icons/studychina-navigator-logo.png" alt="StudyChina Navigator" class="h-10 w-auto object-contain">
+    </a>
+    <nav class="hidden md:flex items-center gap-8 h-full" id="mainnav">
+      <button class="navtab h-full flex items-center text-primary font-bold" data-main="directory">Directory</button>
+      <button class="navtab h-full flex items-center text-on-surface-variant hover:text-secondary transition-colors" data-main="exam">Exam Prep</button>
+      <a class="navtab h-full flex items-center text-on-surface-variant hover:text-secondary transition-colors" href="csca-learn/index.html">CSCA Basics</a>
+      <button class="navtab h-full flex items-center text-on-surface-variant hover:text-secondary transition-colors" data-main="scholarships">Scholarships</button>
+      <button class="navtab h-full flex items-center text-on-surface-variant hover:text-secondary transition-colors" data-main="applications">My Applications</button>
+    </nav>
+    <div class="flex items-center gap-4">
+      <div class="relative hidden lg:block">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+        <input id="topSearch" class="pl-10 pr-4 py-2 bg-surface-container-low border border-neutral-input rounded focus:border-primary-container focus:ring-2 focus:ring-primary-container/10 outline-none w-64" placeholder="Search universities…" type="text">
       </div>
-      <div class="cl-side-group">
-        <p class="cl-side-label" data-i18n="sideTools">诊断与工具</p>
-        <button class="cl-tab" data-panel="dx"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg><span class="cl-tab-tx">诊断</span><span class="cl-tab-en">Diagnostic</span></button>
-        <button class="cl-tab" data-panel="sim"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7L4.5 19a1 1 0 0 0 .9 1.5h13.2a1 1 0 0 0 .9-1.5L14 9V2"/><path d="M8 2h8"/></svg><span class="cl-tab-tx">仪器模拟</span><span class="cl-tab-en">Simulator</span></button>
-        <button class="cl-tab" data-panel="path"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M6 16.5V11a3 3 0 0 1 3-3h6.5"/><path d="M15 6.5V11a3 3 0 0 0 3 3h.5"/></svg><span class="cl-tab-tx">学习路径</span><span class="cl-tab-en">Path</span></button>
+      <button class="bg-primary-container text-on-primary hover:bg-primary transition-colors duration-200 px-6 py-2 rounded font-label-md text-label-md font-semibold hidden md:block" onclick="document.getElementById('mainnav').querySelector('[data-main=directory]').click();document.getElementById('topSearch').focus()">Browse Schools</button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ VIEW: DIRECTORY (home) ═══ -->
+<main id="view-directory" class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 flex flex-col gap-16">
+
+  <!-- Hero -->
+  <section class="flex flex-col gap-6 max-w-3xl">
+    <h1 class="text-display-lg font-display-lg text-primary-container">Academic Excellence Starts Here</h1>
+    <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+      Navigate your path to higher education in China. Research top-tier universities, prepare for rigorous CSCA examinations, and manage your application process with absolute precision.
+    </p>
+    <div class="flex flex-wrap gap-3" id="topStats"></div>
+  </section>
+
+  <!-- Academic Path (Bento) -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div data-go="directory" class="card-hover bg-surface-container-lowest border border-neutral-card rounded-lg p-8 hover:bg-surface-container-low transition-colors duration-300 group cursor-pointer relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><span class="text-9xl font-display-lg text-primary-container leading-none">1</span></div>
+      <svg class="w-14 h-14 text-primary-container mb-6 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      <h3 class="text-headline-md font-headline-md text-primary-container mb-2">Find a School</h3>
+      <p class="text-body-md font-body-md text-on-surface-variant mb-6">Explore <span id="statSchools">56</span> officially recognized institutions with exact requirements.</p>
+      <span class="text-secondary font-label-md text-label-md uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Explore Directory <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+    </div>
+    <div data-go="csca" class="card-hover bg-surface-container-lowest border border-neutral-card rounded-lg p-8 hover:bg-surface-container-low transition-colors duration-300 group cursor-pointer relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><span class="text-9xl font-display-lg text-primary-container leading-none">2</span></div>
+      <svg class="w-14 h-14 text-primary-container mb-6 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      <h3 class="text-headline-md font-headline-md text-primary-container mb-2">Learn the Basics</h3>
+      <p class="text-body-md font-body-md text-on-surface-variant mb-6">Master the foundational concepts and drills for CSCA certification.</p>
+      <span class="text-secondary font-label-md text-label-md uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Open CSCA Basics <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+    </div>
+    <div data-go="exam" class="bg-primary-container border border-primary-container rounded p-8 hover:bg-primary transition-colors duration-300 group cursor-pointer relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"><span class="text-9xl font-display-lg text-white leading-none">3</span></div>
+      <svg class="w-14 h-14 text-white mb-6 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+      <h3 class="text-headline-md font-headline-md text-white mb-2">Prepare for Exam</h3>
+      <p class="text-body-md font-body-md text-primary-fixed-dim mb-6">Complete environment checks and ID verification for exam day.</p>
+      <span class="text-white font-label-md text-label-md uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">Review Checklist <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+    </div>
+  </section>
+
+  <!-- CSCA context banner -->
+  <div id="cscaBanner" class="bg-surface-container-low border border-neutral-card rounded p-5 text-body-md text-on-surface-variant"></div>
+
+  <!-- Directory Section -->
+  <section class="grid grid-cols-1 lg:grid-cols-4 gap-8 pt-8 border-t border-neutral-card">
+    <!-- Filters Sidebar -->
+    <aside class="lg:col-span-1 flex flex-col gap-8">
+      <div>
+        <h4 class="text-label-sm font-label-sm uppercase text-on-surface-variant mb-4">Degree Level</h4>
+        <div class="flex flex-wrap gap-2" id="fDegree">
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="degree" data-value="undergrad">Undergraduate</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="degree" data-value="graduate">Postgraduate</button>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-label-sm font-label-sm uppercase text-on-surface-variant mb-4">CSCA Subjects</h4>
+        <div class="flex flex-wrap gap-2" id="fCsca">
+          <button class="chip chip-csca px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-secondary transition-colors" data-filter="csca" data-value="数学">数学 Math</button>
+          <button class="chip chip-csca px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-secondary transition-colors" data-filter="csca" data-value="物理">物理 Physics</button>
+          <button class="chip chip-csca px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-secondary transition-colors" data-filter="csca" data-value="化学">化学 Chemistry</button>
+          <button class="chip chip-csca px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-secondary transition-colors" data-filter="csca" data-value="理科中文">理科中文 Sci-CN</button>
+          <button class="chip chip-csca px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-secondary transition-colors" data-filter="csca" data-value="文科中文">文科中文 Lib-CN</button>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-label-sm font-label-sm uppercase text-on-surface-variant mb-4">Instruction Language</h4>
+        <label class="flex items-center gap-2 cursor-pointer group">
+          <input id="fEnglish" type="checkbox" class="w-4 h-4 text-primary-container rounded border-neutral-input focus:ring-primary-container">
+          <span class="text-body-md font-body-md text-on-surface group-hover:text-primary-container transition-colors">English-taught Programs Only</span>
+        </label>
+      </div>
+      <div>
+        <h4 class="text-label-sm font-label-sm uppercase text-on-surface-variant mb-4">Region</h4>
+        <div class="flex flex-wrap gap-2" id="fRegion">
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="region" data-value="North">North</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="region" data-value="East">East</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="region" data-value="Central">Central</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="region" data-value="Central-West">Central-West</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="region" data-value="Northeast">Northeast</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="region" data-value="South">South</button>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-label-sm font-label-sm uppercase text-on-surface-variant mb-4">Tier</h4>
+        <div class="flex flex-wrap gap-2" id="fTier">
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="tier" data-value="985">985</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="tier" data-value="211">211</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="tier" data-value="双一流">双一流 · Double-First-Class</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="tier" data-value="省属重点">省属重点 · Provincial Key</button>
+          <button class="chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-filter="tier" data-value="普通本科">普通本科 · Regular</button>
+        </div>
+      </div>
+      <button id="reset" class="chip self-start px-4 py-2 bg-surface text-on-surface-variant text-label-md font-label-md rounded border border-outline-variant hover:border-primary-container transition-colors">Reset filters</button>
+    </aside>
+
+    <!-- Directory Grid -->
+    <div class="lg:col-span-3 flex flex-col gap-6">
+      <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-2 gap-3">
+        <div class="flex items-center gap-3">
+          <h2 class="text-headline-md font-headline-md text-primary-container">University Directory</h2>
+          <span id="resultCount" class="text-label-sm font-label-sm text-on-surface-variant"></span>
+        </div>
+        <div class="flex items-center gap-2" id="viewToggle">
+          <button class="chip chip-view px-3 py-1 bg-primary-container text-white text-label-sm font-label-sm rounded border border-primary-container" data-view="cards">Cards</button>
+          <button class="chip chip-view px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-view="db">Database</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="grid"></div>
+      <section id="dbview" hidden></section>
+      <p id="empty" class="text-body-md text-on-surface-variant py-12 text-center" hidden>No universities match your filters. Try resetting.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ═══ VIEW: EXAM PREP ═══ -->
+<main id="view-exam" hidden class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 flex flex-col gap-10">
+  <div class="flex flex-col gap-4 max-w-3xl">
+    <h1 class="text-headline-lg font-headline-lg text-primary-container">Exam-Day Preparation (家考模拟)</h1>
+    <p class="text-body-lg font-body-lg text-on-surface-variant">The six things that make online-proctored exams stressful — handled one by one. Each card has a "before the exam" checklist and an "if something goes wrong" plan.</p>
+    <div class="flex items-center gap-3">
+      <span id="examOverallText" class="text-label-md font-label-md text-on-surface-variant"></span>
+    </div>
+    <div class="pbar"><i id="examOverallBar" style="width:0%"></i></div>
+    <div class="flex items-center gap-2 flex-wrap" id="examLang" role="group" aria-label="Language">
+      <span class="text-label-sm font-label-sm uppercase text-on-surface-variant mr-1">Language</span>
+      <button class="lang-btn chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm rounded border border-outline-variant" data-lang="zh">中文</button>
+      <button class="lang-btn chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm rounded border border-outline-variant" data-lang="en">EN</button>
+      <button class="lang-btn chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm rounded border border-outline-variant" data-lang="ur">اردو</button>
+      <button class="lang-btn chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm rounded border border-outline-variant" data-lang="ar">العربية</button>
+      <button class="lang-btn chip px-3 py-1 bg-surface text-on-surface-variant text-label-sm rounded border border-outline-variant" data-lang="fr">FR</button>
+    </div>
+    <p class="text-label-md font-label-md text-on-surface-variant bg-surface-container-low border border-neutral-card rounded p-3">This is a general online-proctored-exam preparation checklist. CSCA's specific proctoring software and rules follow your admission ticket / official notice — read it through before exam day.</p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="examCards"></div>
+</main>
+
+<!-- ═══ VIEW: SCHOLARSHIPS ═══ -->
+<main id="view-scholarships" hidden class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 flex flex-col gap-12">
+  <!-- Hero -->
+  <section class="text-center max-w-3xl mx-auto flex flex-col gap-5">
+    <svg class="w-12 h-12 text-primary-container mx-auto block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+    <h1 class="text-display-lg font-display-lg text-primary-container">Fund Your Future in China</h1>
+    <p class="text-body-lg font-body-lg text-on-surface-variant">Most international students in China study on a scholarship rather than paying full tuition. Search and filter the main government, provincial, and university routes below.</p>
+    <div class="relative max-w-2xl mx-auto w-full">
+      <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+      <input id="schSearch" class="w-full pl-12 pr-4 py-3 border border-neutral-input rounded bg-surface-container-low focus:border-primary-container focus:ring-2 focus:ring-primary-container/10 focus:outline-none font-body-md text-body-md transition-all" placeholder="Search by scholarship name, university, or provider…" type="text">
+    </div>
+  </section>
+
+  <div class="flex flex-col md:flex-row gap-8 md:gap-gutter">
+    <!-- Sidebar Filters -->
+    <aside class="w-full md:w-64 flex-shrink-0">
+      <div class="bg-surface-container-lowest border border-neutral-card rounded p-6 sticky top-24 flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b border-neutral-card pb-3">
+          <h3 class="text-headline-md font-headline-md text-primary-container">Filter Scholarships</h3>
+        </div>
+        <div>
+          <h4 class="text-label-md font-label-md text-on-surface-variant mb-3 font-semibold">Degree Level</h4>
+          <div class="flex flex-col gap-2">
+            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="sch-degree rounded-sm border-neutral-input text-primary-container focus:ring-primary-container w-4 h-4" value="undergrad"><span class="text-body-md text-on-surface">Undergraduate</span></label>
+            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="sch-degree rounded-sm border-neutral-input text-primary-container focus:ring-primary-container w-4 h-4" value="grad"><span class="text-body-md text-on-surface">Master's / Postgraduate</span></label>
+            <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="sch-degree rounded-sm border-neutral-input text-primary-container focus:ring-primary-container w-4 h-4" value="phd"><span class="text-body-md text-on-surface">PhD / Doctoral</span></label>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-label-md font-label-md text-on-surface-variant mb-3 font-semibold">Region</h4>
+          <select id="schRegion" class="w-full border border-neutral-input rounded bg-surface-container-low p-2 text-body-md text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container focus:outline-none">
+            <option value="">All Regions</option>
+          </select>
+        </div>
+        <div>
+          <h4 class="text-label-md font-label-md text-on-surface-variant mb-3 font-semibold">Funding</h4>
+          <div class="flex flex-wrap gap-2" id="schFunding">
+            <button class="chip sch-funding px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-funding="full">Full</button>
+            <button class="chip sch-funding px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-funding="partial">Partial</button>
+            <button class="chip sch-funding px-3 py-1 bg-surface text-on-surface-variant text-label-sm font-label-sm rounded border border-outline-variant hover:border-primary-container transition-colors" data-funding="full/partial">Full / Partial</button>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-label-md font-label-md text-on-surface-variant mb-3 font-semibold">Min GPA Requirement</h4>
+          <input id="schGpa" class="w-full accent-primary-container" max="4.0" min="2.0" step="0.1" type="range" value="4.0">
+          <div class="flex justify-between mt-1 text-on-surface-variant text-label-sm font-label-sm"><span>2.0</span><span id="schGpaVal" class="text-primary-container font-bold">4.0</span><span>4.0</span></div>
+        </div>
+        <button id="schReset" class="chip self-start px-4 py-2 bg-surface text-on-surface-variant text-label-md font-label-md rounded border border-outline-variant hover:border-primary-container transition-colors">Reset filters</button>
       </div>
     </aside>
 
-  <main class="cl-main">
-    <!-- ═══ PANEL 0: Root knowledge map ═══ -->
-    <section class="cl-panel" id="panel-root">
-      <div class="root-body" id="rootBody"></div>
-    </section>
-
-    <!-- ═══ PANEL 1: Knowledge Base ═══ -->
-    <section class="cl-panel" id="panel-kb" hidden>
-      <div class="cl-subjects" id="kbSubjects"></div>
-      <div class="cl-topics" id="kbTopics"></div>
-      <div class="cl-detail" id="kbDetail"></div>
-    </section>
-
-    <!-- ═══ PANEL 1.5: Foundation Floor ═══ -->
-    <section class="cl-panel" id="panel-found" hidden>
-      <div class="found-intro" id="foundIntro"></div>
-      <div class="cl-subjects" id="foundSubjects"></div>
-      <div class="found-detail" id="foundDetail"></div>
-    </section>
-
-    <!-- ═══ PANEL 2: Academic Chinese ═══ -->
-    <section class="cl-panel" id="panel-cn" hidden>
-      <div class="cn-header">
-        <h2 data-i18n="cnTitle">学术中文阅读力训练</h2>
-        <p data-i18n="cnDesc">专业中文（理科中文 / 文科中文）是中文授课方向必考科目，90 分钟 80 题，竞品几乎没碰</p>
-        <div class="cn-levels">
-          <button class="cn-lvl active" data-cn-lvl="1" data-i18n="cnL1">Level 1 · 术语库</button>
-          <button class="cn-lvl" data-cn-lvl="2" data-i18n="cnL2">Level 2 · 短篇阅读</button>
-          <button class="cn-lvl" data-cn-lvl="3" data-i18n="cnL3">Level 3 · 应用场景</button>
-          <button class="cn-lvl" data-cn-lvl="4" data-i18n="cnL4">Level 4 · 80 题模考</button>
+    <!-- Main content -->
+    <div class="flex-grow flex flex-col gap-10">
+      <!-- Category bento grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div data-schcat="csc" class="sch-cat bg-surface-container-lowest border border-neutral-card rounded p-6 md:col-span-2 relative overflow-hidden group hover:border-primary-container transition-colors cursor-pointer">
+          <div class="absolute right-0 top-0 w-32 h-32 bg-primary-container/5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="inline-flex items-center gap-1 text-secondary text-label-sm font-label-sm uppercase tracking-wider mb-2"><span class="material-symbols-outlined text-[16px]">stars</span> Premium Award</span>
+              <h3 class="text-headline-lg font-headline-lg text-primary-container mb-2">Chinese Government Scholarship (CSC)</h3>
+              <p class="text-body-md text-on-surface-variant mb-2 max-w-2xl">Full funding — tuition, accommodation, and a monthly stipend. Applied through Chinese embassies or designated universities.</p>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant group-hover:text-primary-container transition-colors hidden sm:block">arrow_forward</span>
+          </div>
+        </div>
+        <div data-schcat="provincial" class="sch-cat bg-surface-container-lowest border border-neutral-card rounded p-6 hover:border-primary-container transition-colors cursor-pointer flex flex-col h-full justify-between">
+          <div>
+            <span class="material-symbols-outlined text-tertiary-container mb-3 text-[32px]">account_balance</span>
+            <h3 class="text-headline-md font-headline-md text-primary-container mb-2">Provincial & Municipal</h3>
+            <p class="text-body-md text-on-surface-variant mb-4">Targeted awards from city or provincial governments (Beijing, Shanghai, Jiangsu…). Partial and full options.</p>
+          </div>
+          <span class="text-secondary text-label-sm font-label-sm font-semibold uppercase hover:underline">Explore Local Awards →</span>
+        </div>
+        <div data-schcat="university" class="sch-cat bg-surface-container-lowest border border-neutral-card rounded p-6 hover:border-primary-container transition-colors cursor-pointer flex flex-col h-full justify-between">
+          <div>
+            <span class="material-symbols-outlined text-tertiary-container mb-3 text-[32px]">school</span>
+            <h3 class="text-headline-md font-headline-md text-primary-container mb-2">University-Specific</h3>
+            <p class="text-body-md text-on-surface-variant mb-4">Merit-based awards managed by top institutions. Criteria and benefits vary by university.</p>
+          </div>
+          <span class="text-secondary text-label-sm font-label-sm font-semibold uppercase hover:underline">View Institutional Awards →</span>
         </div>
       </div>
-      <div class="cn-body" id="cnBody"></div>
-    </section>
 
-    <!-- ═══ PANEL 3: Mental Math ═══ -->
-    <section class="cl-panel" id="panel-calc" hidden>
-      <div class="mm-header">
-        <h2 data-i18n="calcTitle">无计算器手算训练</h2>
-        <p data-i18n="calcDesc">CSCA 全部科目禁用计算器。IB/A-Level 学生普遍依赖图形计算器——这里帮你"去计算器"再训练。</p>
+      <div class="h-px bg-surface-variant w-full"></div>
+
+      <!-- Active scholarships list -->
+      <div class="flex justify-between items-end mb-2">
+        <h2 class="text-headline-lg font-headline-lg text-primary-container">Active Scholarships</h2>
+        <span id="schCount" class="text-label-sm font-label-sm text-on-surface-variant"></span>
       </div>
-      <div class="mm-tools">
-        <div class="mm-filter" id="mmFilter">
-          <span class="mm-filter-label" data-i18n="difficulty">难度</span>
-          <button class="mmf active" data-diff="all" data-i18n="all">全部</button>
-          <button class="mmf" data-diff="easy" data-i18n="easy">简单</button>
-          <button class="mmf" data-diff="medium" data-i18n="medium">中等</button>
-          <button class="mmf" data-diff="hard" data-i18n="hard">难</button>
-          <span class="mm-pool" id="mmPool"></span>
+      <div id="schList" class="flex flex-col gap-6"></div>
+      <p id="schEmpty" class="text-body-md text-on-surface-variant py-12 text-center border border-dashed border-outline-variant rounded" hidden>No scholarships match your filters. Try widening the GPA slider or resetting.</p>
+      <div id="schPager" class="flex justify-center gap-2 mt-4"></div>
+    </div>
+  </div>
+  <p class="text-label-md font-label-md text-on-surface-variant bg-surface-container-low border border-neutral-card rounded p-4">StudyChina Navigator is an independent guide. We are not affiliated with the CSC, any university, or the Chinese government. Links point to official sources where available; always confirm current quotas and deadlines on the issuer's site.</p>
+</main>
+
+<!-- ═══ VIEW: MY APPLICATIONS ═══ -->
+<main id="view-applications" hidden class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 flex flex-col gap-10">
+  <section class="text-center max-w-3xl mx-auto flex flex-col gap-5">
+    <svg class="w-12 h-12 text-primary-container mx-auto block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+    <h1 class="text-display-lg font-display-lg text-primary-container">Track Your Applications</h1>
+    <p class="text-body-lg font-body-lg text-on-surface-variant">Shortlist universities from the Directory, then track deadlines, required documents, and status in one place. Everything is saved locally in your browser.</p>
+  </section>
+  <section class="flex flex-wrap gap-3" id="appStats"></section>
+  <div id="appList" class="app-grid"></div>
+  <div id="appEmpty" hidden class="text-center py-16 border border-dashed border-outline-variant rounded-lg bg-surface-container-lowest px-6">
+    <p class="text-body-lg font-body-lg text-on-surface-variant mb-2">No schools in your shortlist yet.</p>
+    <p class="text-body-md text-on-surface-variant/80 mb-6 max-w-xl mx-auto">Tap a school below to add it, or browse the Directory and tap <span class="font-medium text-primary-container">★</span> on any card. Everything saves in your browser.</p>
+    <div id="appSuggest" class="flex flex-wrap gap-3 justify-center mb-8"></div>
+    <button class="bg-primary-container text-on-primary px-6 py-3 rounded text-label-md font-label-md hover:bg-primary transition-colors" data-go="directory">Browse the Directory</button>
+  </div>
+</main>
+
+<!-- ═══ Compare floating bar ═══ -->
+<div id="cmpBar" hidden>
+  <span class="cmp-names" id="cmpNames"></span>
+  <button class="cmp-go" id="cmpGo">Compare</button>
+  <button class="cmp-clear" id="cmpClear">Clear</button>
+</div>
+
+<!-- ═══ Compare Modal ═══ -->
+<div class="modal-backdrop fixed inset-0 z-50 bg-black/40 flex items-start justify-center p-4 overflow-y-auto" id="cmpModal" hidden>
+  <div class="bg-surface-container-lowest rounded-lg max-w-5xl w-full my-10 p-8 relative">
+    <button id="cmpModalClose" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary-container transition-colors" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+    <h2 class="text-headline-lg font-headline-lg text-primary-container mb-6">Compare Universities</h2>
+    <div id="cmpBody" class="overflow-x-auto"></div>
+  </div>
+</div>
+
+<!-- ═══ Scholarship Detail Modal ═══ -->
+<div class="modal-backdrop fixed inset-0 z-50 bg-black/40 flex items-start justify-center p-4 overflow-y-auto" id="schModal" hidden>
+  <div class="bg-surface-container-lowest border border-neutral-card rounded-lg w-full max-w-2xl my-12 p-8 relative shadow-overlay" role="dialog" aria-modal="true">
+    <button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary material-symbols-outlined" id="schModalClose" aria-label="Close">close</button>
+    <div id="schModalBody"></div>
+  </div>
+</div>
+
+<!-- ═══ Footer ═══ -->
+<footer class="bg-surface-container-low border-t border-neutral-card mt-auto w-full">
+  <div class="w-full py-12 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter">
+    <div class="text-label-md font-label-md font-bold text-primary">
+      © 2026 StudyChina Navigator · Independent guide for international applicants
+    </div>
+    <nav class="flex flex-wrap gap-6 text-label-sm font-label-sm">
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Verification</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Contact Support</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Terms of Service</a>
+    </nav>
+  </div>
+  <div class="w-full px-margin-desktop max-w-container-max mx-auto pb-6">
+    <p class="text-label-sm font-label-sm text-on-surface-variant">Not affiliated with any university or government agency. Application links point to each school's official international-students office. CSCA subject lists reflect 2026 admission guides — always confirm exact subjects and score cut-offs in the official yearly guide.</p>
+  </div>
+</footer>
+
+<!-- ═══ Detail Modal ═══ -->
+<div class="modal-backdrop fixed inset-0 z-50 bg-black/40 flex items-start justify-center p-4 overflow-y-auto" id="modal" hidden>
+  <div class="bg-surface-container-lowest border border-neutral-card rounded-lg w-full max-w-2xl my-12 p-8 relative shadow-overlay" role="dialog" aria-modal="true">
+    <button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary material-symbols-outlined" id="modalClose" aria-label="Close">close</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="exam-i18n.js"></script>
+<script src="crest.js"></script>
+<script>
+// ═══ StudyChina Navigator — Academic Precision rewrite. Reuses data.js + exam-i18n.js ═══
+(function () {
+  const grid = document.getElementById("grid");
+  const empty = document.getElementById("empty");
+  const resultCount = document.getElementById("resultCount");
+  const cscaBanner = document.getElementById("cscaBanner");
+  const topStats = document.getElementById("topStats");
+  const dbview = document.getElementById("dbview");
+  const viewToggle = document.getElementById("viewToggle");
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("modalBody");
+  const modalClose = document.getElementById("modalClose");
+  const examCards = document.getElementById("examCards");
+  const mainnav = document.getElementById("mainnav");
+  const fEnglish = document.getElementById("fEnglish");
+
+  const state = {
+    search: "",
+    degree: null,
+    english: false,
+    region: null,
+    tier: null,
+    csca: [],
+    view: "cards",
+    main: "directory",
+    examLang: (function(){ try { return localStorage.getItem("csca_exam_lang") || "zh"; } catch(e){ return "zh"; } })()
+  };
+
+  // ---- My Applications: shortlist + compare (persisted locally) ----
+  let SHORTLIST = (function(){ try { return JSON.parse(localStorage.getItem("scn_shortlist_v1") || "[]"); } catch(e){ return []; } })();
+  let APPS = (function(){ try { return JSON.parse(localStorage.getItem("scn_apps_v1") || "{}"); } catch(e){ return {}; } })();
+  let CMP = (function(){ try { return JSON.parse(localStorage.getItem("scn_cmp_v1") || "[]"); } catch(e){ return []; } })();
+  const APP_DOCS = ["Transcripts", "Passport copy", "Recommendation letters", "Personal statement", "Language test score", "Financial proof"];
+  const APP_STATUS = {
+    notstarted: "Not started", preparing: "Preparing", submitted: "Submitted", admitted: "Admitted"
+  };
+  function saveShortlist(){ try{ localStorage.setItem("scn_shortlist_v1", JSON.stringify(SHORTLIST)); }catch(e){} }
+  function saveApps(){ try{ localStorage.setItem("scn_apps_v1", JSON.stringify(APPS)); }catch(e){} }
+  function saveCmp(){ try{ localStorage.setItem("scn_cmp_v1", JSON.stringify(CMP)); }catch(e){} }
+  function isFav(id){ return SHORTLIST.includes(id); }
+  function isCmp(id){ return CMP.includes(id); }
+  function toggleFav(id){
+    const i = SHORTLIST.indexOf(id);
+    if (i >= 0) { SHORTLIST.splice(i, 1); delete APPS[id]; }
+    else { SHORTLIST.push(id); APPS[id] = APPS[id] || { status: "notstarted", deadline: "", docs: {}, notes: "" }; }
+    saveShortlist(); saveApps();
+    syncCardButtons(); renderCmpBar();
+  }
+  function toggleCmp(id){
+    const i = CMP.indexOf(id);
+    if (i >= 0) { CMP.splice(i, 1); }
+    else { if (CMP.length >= 3) { alert("You can compare up to 3 universities."); return; } CMP.push(id); }
+    saveCmp(); syncCardButtons(); renderCmpBar();
+  }
+  function syncCardButtons(){
+    document.querySelectorAll("[data-fav]").forEach(b => { const on = isFav(b.getAttribute("data-fav")); b.classList.toggle("on", on); b.textContent = on ? "★" : "☆"; });
+    document.querySelectorAll("[data-cmp]").forEach(b => { const on = isCmp(b.getAttribute("data-cmp")); b.classList.toggle("on", on); b.textContent = on ? "✓" : "⇄"; });
+  }
+
+  let examChecks = {};
+  try { examChecks = JSON.parse(localStorage.getItem("csca_exam_check_v1") || "{}"); } catch (e) { examChecks = {}; }
+  const EXAM_LABELS = {
+    zh: { before: "考前做", fix: "出事怎么办" },
+    en: { before: "Before the exam", fix: "If something goes wrong" },
+    ur: { before: "امتحان سے پہلے", fix: "مسئلہ آئے تو" },
+    ar: { before: "قبل الاختبار", fix: "عند حدوث مشكلة" },
+    fr: { before: "Avant l'examen", fix: "Si un problème survient" }
+  };
+
+  // ---- CSCA subject vocabulary → English (for the English-facing Directory) ----
+  const CSCA_SUBJECT_EN = {
+    "数学": "Mathematics",
+    "物理": "Physics",
+    "化学": "Chemistry",
+    "理科中文": "Science Chinese (Sci-CN)",
+    "文科中文": "Liberal-Arts Chinese (Lib-CN)"
+  };
+  const cscaEn = (arr) => (arr || []).map(s => CSCA_SUBJECT_EN[s] || s);
+  // English initial for the tooltip badge (drops the Chinese monogram char).
+  const badgeEn = (name) => {
+    const s = (name || "").replace(/^university of\s+/i, "").replace(/^the\s+/i, "").trim();
+    return (Array.from(s)[0] || "?").toUpperCase();
+  };
+
+  // ---- Stats + banner ----
+  const withEnglish = UNIVERSITIES.filter(u => /english/i.test(u.englishTaught) && !/very limited|mostly chinese/i.test(u.englishTaught)).length;
+  const cities = new Set(UNIVERSITIES.map(u => u.city)).size;
+  const cscaCount = UNIVERSITIES.filter(u => u.csca && /required/i.test(u.csca)).length;
+  topStats.innerHTML =
+    `<div class="bg-surface-container-lowest border border-neutral-card rounded px-5 py-3"><b class="text-headline-md text-primary-container">${UNIVERSITIES.length}</b><span class="text-label-sm text-on-surface-variant ml-1">universities</span></div>` +
+    `<div class="bg-surface-container-lowest border border-neutral-card rounded px-5 py-3"><b class="text-headline-md text-primary-container">${cities}</b><span class="text-label-sm text-on-surface-variant ml-1">cities</span></div>` +
+    `<div class="bg-surface-container-lowest border border-neutral-card rounded px-5 py-3"><b class="text-headline-md text-primary-container">${cscaCount}</b><span class="text-label-sm text-on-surface-variant ml-1">CSCA req.</span></div>` +
+    `<div class="bg-surface-container-lowest border border-neutral-card rounded px-5 py-3"><b class="text-headline-md text-primary-container">${withEnglish}</b><span class="text-label-sm text-on-surface-variant ml-1">English-taught</span></div>`;
+  document.getElementById("statSchools").textContent = UNIVERSITIES.length;
+  cscaBanner.innerHTML = "<b>About CSCA:</b> " + CSCA_NOTE;
+
+  // ---- Filtering ----
+  function getFiltered() {
+    const q = state.search.trim().toLowerCase();
+    return UNIVERSITIES.filter(u => {
+      if (q) {
+        const hay = (u.nameEn + " " + u.nameZh + " " + u.city + " " + (u.types||[]).join(" ")).toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      if (state.degree === "undergrad" && !u.undergrad) return false;
+      if (state.degree === "graduate" && !u.graduate) return false;
+      if (state.english && !(/english/i.test(u.englishTaught) && !/very limited|mostly chinese/i.test(u.englishTaught))) return false;
+      if (state.region && u.region !== state.region) return false;
+      if (state.tier && u.tier !== state.tier) return false;
+      if (state.csca.length) {
+        const subs = u.cscaSubjects || [];
+        if (!state.csca.every(s => subs.includes(s))) return false;
+      }
+      return true;
+    });
+  }
+
+  function cardHTML(u) {
+    const facts = [];
+    facts.push(`<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant text-label-sm rounded-sm">${u.undergrad ? "Undergrad" : ""}${u.undergrad && u.graduate ? " · " : ""}${u.graduate ? "Grad" : ""}</span>`);
+    if (/english/i.test(u.englishTaught) && !/very limited|mostly chinese/i.test(u.englishTaught))
+      facts.push(`<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant text-label-sm rounded-sm">English programs</span>`);
+    facts.push(`<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant text-label-sm rounded-sm">CSCA req.</span>`);
+    const types = (u.types||[]).map(t => `<span class="px-2 py-0.5 bg-surface-variant text-on-surface text-label-sm rounded-sm">${t}</span>`).join("");
+    const tierBadge = u.tier ? `<span class="tier-badge">${u.tier}</span>` : "";
+    const subjects = cscaEn(u.cscaSubjects).map(s => `<span class="px-2 py-0.5 bg-surface-variant text-on-surface text-label-sm rounded-sm">${s}</span>`).join("");
+    return `
+      <article class="card-hover bg-surface-container-lowest border border-neutral-card rounded p-6 flex flex-col gap-4 hover:bg-surface-container-low transition-colors" data-id="${u.id}">
+        <div class="card-actions">
+          <button class="${isFav(u.id) ? "on" : ""}" data-fav="${u.id}" title="Add to My Applications">${isFav(u.id) ? "★" : "☆"}</button>
+          <button class="${isCmp(u.id) ? "on" : ""}" data-cmp="${u.id}" title="Compare">${isCmp(u.id) ? "✓" : "⇄"}</button>
         </div>
-        <button class="mm-daily-btn" id="mmDailyBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4M16 2v4"/></svg> <span data-i18n="daily10">今日 10 题</span></button>
-        <button class="mm-adapt-btn" id="mmAdaptiveBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg> <span data-i18n="adaptive">智能复习</span></button>
-        <span class="mm-daily-streak" id="mmDailyStreak"></span>
-      </div>
-      <div class="mm-daily-bar" id="mmDailyBar" hidden></div>
-      <div class="mm-layout">
-        <div class="mm-timer" id="mmTimer">75<span>s</span></div>
-        <div class="mm-problem" id="mmProblem"></div>
-        <div class="mm-input">
-          <input type="text" id="mmInput" placeholder="心算答案…" data-i18n-ph="mmPlaceholder" autocomplete="off" />
-          <button id="mmSubmit" data-i18n="mmSubmit">提交</button>
-          <button id="mmNext" hidden data-i18n="nextQ">下一题 →</button>
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-14 flex-shrink-0">${schoolCrest(u, 48)}</div>
+          <div>
+            <h3 class="text-headline-md font-headline-md text-primary-container leading-tight">${u.nameEn}</h3>
+            <p class="text-body-md text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span>${u.nameZh} · ${u.city}</p>
+          </div>
         </div>
-        <div class="mm-feedback" id="mmFeedback"></div>
-        <div class="mm-score"><span id="mmScoreLabel" data-i18n="thisGroup">本组</span>：<b id="mmScore">0</b> · <span data-i18n="mmStreakLabel">连对</span>：<b id="mmStreak">0</b></div>
-      </div>
-      <div class="mm-tech" id="mmTech"></div>
-    </section>
-
-    <!-- ═══ PANEL 4: Gap Diagnostic ═══ -->
-    <section class="cl-panel" id="panel-dx" hidden>
-      <div class="dx-header">
-        <h2 data-i18n="dxTitle">跨课程诊断 → 个性化基础补强</h2>
-        <p data-i18n="dxDesc">你学过什么？立刻找出 CSCA 知识缺口，生成按考试日期倒推的每日计划。</p>
-      </div>
-      <div class="dx-form" id="dxForm">
-        <div class="dx-subj">
-          <label><input type="checkbox" name="dx-math" checked> <span data-i18n="subjMath">数学</span></label>
-          <label><input type="checkbox" name="dx-phys" checked> <span data-i18n="subjPhys">物理</span></label>
-          <label><input type="checkbox" name="dx-chem" checked> <span data-i18n="subjChem">化学</span></label>
+        <div class="flex flex-wrap gap-2 items-center">${types}${tierBadge}</div>
+        <p class="text-body-md text-on-surface-variant">${u.blurb}</p>
+        <div class="flex flex-wrap gap-2">${facts.join("")}</div>
+        ${subjects ? `<div class="flex flex-wrap gap-2 items-center"><span class="text-label-sm uppercase text-on-surface-variant">CSCA:</span>${subjects}</div>` : ""}
+        <div class="mt-auto pt-4 border-t border-neutral-divider flex justify-between items-center">
+          <a class="text-secondary font-label-md text-label-md font-semibold hover:text-secondary-container transition-colors" href="${u.applyUrl}" target="_blank" rel="noopener">Official Application →</a>
+          <button class="text-primary-container font-label-md text-label-md font-semibold hover:text-secondary transition-colors" data-detail="${u.id}">Requirements</button>
         </div>
-        <select id="dxBg" class="dx-select">
-          <option value="" data-i18n="dxBgPlaceholder">—— 选择你的课程背景 ——</option>
-          <option value="ib-math-aa" data-i18n="bgIbMathAa">IB Math AA (HL/SL)</option>
-          <option value="ib-math-ai" data-i18n="bgIbMathAi">IB Math AI (HL/SL)</option>
-          <option value="ap-precalc" data-i18n="bgApPrecalc">AP Precalculus</option>
-          <option value="ap-calc-ab" data-i18n="bgApCalcAb">AP Calculus AB</option>
-          <option value="alevel-math" data-i18n="bgAlevelMath">A-Level Mathematics</option>
-          <option value="ib-physics" data-i18n="bgIbPhysics">IB Physics</option>
-          <option value="ap-physics-1" data-i18n="bgApPhysics1">AP Physics 1</option>
-          <option value="alevel-physics" data-i18n="bgAlevelPhysics">A-Level Physics</option>
-          <option value="ib-chem" data-i18n="bgIbChem">IB Chemistry</option>
-          <option value="ap-chem" data-i18n="bgApChem">AP Chemistry</option>
-          <option value="alevel-chem" data-i18n="bgAlevelChem">A-Level Chemistry</option>
-        </select>
-        <input type="date" id="dxDate" class="dx-date" />
-        <button id="dxRun" class="dx-btn" data-i18n="dxRun">生成诊断报告 & 每日计划</button>
+      </article>`;
+  }
+
+  function dbHTML(list) {
+    const rows = list.map(u => {
+      const subs = cscaEn(u.cscaSubjects).map(s => `<span class="px-2 py-0.5 bg-surface-variant text-on-surface text-label-sm rounded-sm">${s}</span>`).join(" ");
+      const majorsBlock = (u.majors && u.majors.length)
+        ? `<details class="mt-1"><summary class="text-label-sm text-primary-container cursor-pointer">${u.majors.length} major(s) with CSCA detail</summary>` +
+          u.majors.map(m => `<div class="text-body-md text-on-surface-variant mt-1">• ${m.name}: ${(m.cscaSubjects||[]).join(" + ")}${m.note ? " — " + m.note : ""}</div>`).join("") + `</details>`
+        : "";
+      const srcClass = u.scoreSource === "official" ? "text-secondary" : (u.scoreSource === "reported" ? "text-on-surface-variant" : "text-on-surface-variant");
+      const srcLabel = u.scoreSource ? (SCORE_SOURCE_LABEL[u.scoreSource] || u.scoreSource) : "";
+      const scoreCell = u.minScore
+        ? `<b class="text-headline-md text-primary-container">${u.minScore}</b>${srcLabel ? `<span class="text-label-sm ${srcClass} ml-1">${srcLabel}</span>` : ""}`
+        : (u.scoreSource === "reported" ? `<span class="text-label-md ${srcClass}">${srcLabel}</span>` : `<span class="text-label-md text-on-surface-variant">Not published</span>`);
+      return `
+        <tr class="border-b border-outline-variant">
+          <td class="py-3 pr-4"><b class="text-body-md text-primary-container">${u.nameEn}</b><br><span class="text-label-sm text-on-surface-variant">${u.nameZh} · ${u.city}</span></td>
+          <td class="py-3 pr-4 text-body-md text-on-surface-variant">${u.region}</td>
+          <td class="py-3 pr-4 text-body-md text-on-surface-variant">${u.undergrad ? "UG" : ""}${u.undergrad && u.graduate ? " · " : ""}${u.graduate ? "Grad" : ""}</td>
+          <td class="py-3 pr-4"><div class="flex flex-wrap gap-1">${subs}</div>${majorsBlock}</td>
+          <td class="py-3 pr-4">${scoreCell}</td>
+          <td class="py-3"><a class="text-secondary font-label-md text-label-md font-semibold" href="${u.applyUrl}" target="_blank" rel="noopener">Apply →</a></td>
+        </tr>`;
+    }).join("");
+    return `
+      <div class="bg-surface-container-lowest border border-neutral-card rounded-lg overflow-x-auto">
+        <table class="w-full text-left">
+          <thead><tr class="border-b border-outline-variant bg-surface-container-low">
+            <th class="py-3 pr-4 text-label-sm uppercase text-on-surface-variant">University</th>
+            <th class="py-3 pr-4 text-label-sm uppercase text-on-surface-variant">Region</th>
+            <th class="py-3 pr-4 text-label-sm uppercase text-on-surface-variant">Degree</th>
+            <th class="py-3 pr-4 text-label-sm uppercase text-on-surface-variant">CSCA subjects</th>
+            <th class="py-3 pr-4 text-label-sm uppercase text-on-surface-variant">Min score</th>
+            <th class="py-3 text-label-sm uppercase text-on-surface-variant">Apply</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
       </div>
-      <div class="dx-result" id="dxResult"></div>
-    </section>
+      <p class="text-label-md text-on-surface-variant mt-3 bg-surface-container-low border border-neutral-card rounded p-3"><b>Score source notes:</b> Official document = explicitly stated in the school's admissions file/PDF; Admissions-office reply = a third-party compilation of the office's reply, <b>not published on the school's official site</b> — the official source prevails; Not published = the school has not disclosed it. The general pass mark is ~60/100; medicine/scholarship tracks are usually higher.</p>`;
+  }
 
-    <!-- ═══ PANEL 5: Instrument Simulator ═══ -->
-    <section class="cl-panel" id="panel-sim" hidden>
-      <div id="simStage"></div>
-    </section>
+  function render() {
+    const list = getFiltered();
+    if (state.view === "cards") {
+      grid.hidden = false; dbview.hidden = true;
+      grid.innerHTML = list.map(cardHTML).join("");
+      bindDetailButtons();
+    } else {
+      grid.hidden = true; dbview.hidden = false;
+      dbview.innerHTML = dbHTML(list);
+    }
+    empty.hidden = list.length !== 0;
+    const cscaLabel = state.csca.length ? ` · CSCA: ${state.csca.join("+")}` : "";
+    resultCount.textContent = `Showing ${list.length} of ${UNIVERSITIES.length}${cscaLabel}`;
+  }
 
-    <!-- ═══ PANEL 6: Merged Learning Path ═══ -->
-    <section class="cl-panel" id="panel-path" hidden>
-      <div class="path-head">
-        <h2 data-i18n="pathTitle">完整学习路径 · 地基 → 考点</h2>
-        <p data-i18n="pathDesc">把「地基补强课」和「CSCA 考点课」按学科顺序拼成一条线。先补地板，再上考点——这是竞品没做的路径。点任意一节即可打开。</p>
+  // ---- Detail modal ----
+  function openModal(id) {
+    const u = UNIVERSITIES.find(x => x.id === id);
+    if (!u) return;
+    const stats = (typeof SCHOOL_STATS !== "undefined" && SCHOOL_STATS[u.id]) ? SCHOOL_STATS[u.id] : null;
+    const rows = [
+      ["Degree levels", [u.undergrad && "Undergraduate", u.graduate && "Master's / PhD"].filter(Boolean).join(", ")],
+      ["Tier", u.tier || "—"],
+      ["English-taught", u.englishTaught],
+      ["CSCA", u.csca],
+      ["CSCA subjects", cscaEn(u.cscaSubjects).join(", ") || "—"],
+      ["Language (HSK)", u.language],
+      ["Application window", u.deadline],
+      ["Tuition (indicative)", u.tuition]
+    ];
+    const listItems = rows.map(([k, v]) => `<li class="flex gap-3 py-4 border-b border-neutral-divider last:border-0"><span class="text-label-sm uppercase text-on-surface-variant w-44 flex-shrink-0">${k}</span><span class="text-body-md text-on-surface">${v}</span></li>`).join("");
+    const majorsBlock = (u.majors && u.majors.length)
+      ? `<div class="mt-6"><h3 class="text-headline-md font-headline-md text-primary-container mb-2">CSCA by major</h3><ul class="flex flex-col">` +
+        u.majors.map(m => `<li class="flex gap-3 py-4 border-b border-neutral-divider last:border-0"><span class="text-label-sm uppercase text-on-surface-variant w-44 flex-shrink-0">${m.name}</span><span class="text-body-md text-on-surface">${cscaEn(m.cscaSubjects).join(" + ")}${m.note ? " — " + m.note : ""}</span></li>`).join("") + `</ul></div>`
+      : "";
+    const statsCard = stats ? `
+      <div class="bg-surface-container-low border border-neutral-card rounded p-6 mb-6">
+        <h3 class="text-headline-md font-headline-md text-primary-container border-b border-neutral-card pb-3 mb-4">Global Rankings & Profile</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="flex flex-col"><span class="text-label-sm font-label-sm text-on-surface-variant">QS World 2024</span><span class="text-headline-lg font-headline-lg text-secondary">#${stats.qs}</span></div>
+          <div class="flex flex-col"><span class="text-label-sm font-label-sm text-on-surface-variant">THE World 2024</span><span class="text-headline-lg font-headline-lg text-primary-container">#${stats.the}</span></div>
+          <div class="flex flex-col"><span class="text-label-sm font-label-sm text-on-surface-variant">Founded</span><span class="text-headline-lg font-headline-lg text-primary-container">${stats.founded}</span></div>
+          <div class="flex flex-col"><span class="text-label-sm font-label-sm text-on-surface-variant">Intl Acceptance</span><span class="text-headline-lg font-headline-lg text-primary-container">${stats.acceptance}</span></div>
+        </div>
+      </div>` : "";
+    const programCard = (label, deg, link) => `
+      <div class="bg-surface-container-lowest border border-neutral-card rounded p-6 flex flex-col gap-3">
+        <div class="flex justify-between items-center">
+          <h4 class="text-headline-md font-headline-md text-primary-container">${label}</h4>
+          <span class="bg-primary-fixed text-on-primary-fixed px-2 py-1 rounded-sm text-label-sm font-label-sm">${deg}</span>
+        </div>
+        <p class="text-body-md text-on-surface-variant">${(u.majors && u.majors.length) ? "Sample CSCA-related majors: " + u.majors.map(m => m.name).join(", ") + "." : "Programs available across multiple disciplines."}</p>
+        <a class="text-secondary text-label-md font-label-md hover:underline mt-2 self-start inline-flex items-center gap-1" href="${link}" target="_blank" rel="noopener">Explore on official site <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+      </div>`;
+    const programsBlock = (u.undergrad || u.graduate) ? `
+      <div class="mt-6">
+        <h3 class="text-headline-md font-headline-md text-primary-container mb-3">Available Programs</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          ${u.undergrad ? programCard("Undergraduate", "Bachelors", u.applyUrl) : ""}
+          ${u.graduate ? programCard("Postgraduate", "Masters & PhD", u.isoUrl) : ""}
+        </div>
+      </div>` : "";
+    modalBody.innerHTML = `
+      <div class="flex items-center gap-2 text-on-surface-variant text-label-sm font-label-sm mb-5">
+        <span>Directory</span><span class="material-symbols-outlined text-sm">chevron_right</span>
+        <span>Universities</span><span class="material-symbols-outlined text-sm">chevron_right</span>
+        <span class="text-primary-container font-bold">${u.nameEn}</span>
       </div>
-      <div id="pathBody"></div>
-    </section>
-  </main>
+      <div class="flex items-start gap-4 mb-5">
+        <div class="w-14 h-14 flex-shrink-0">${schoolCrest(u, 56, "m")}</div>
+        <div>
+          <h2 class="text-headline-lg font-headline-lg text-primary-container">${u.nameEn}</h2>
+          <p class="text-body-md text-on-surface-variant">${u.nameZh} · ${u.city}, China · ${(u.types||[]).join(" · ")}</p>
+        </div>
+      </div>
+      <p class="text-body-lg text-on-surface-variant mb-6 max-w-3xl">${u.blurb}</p>
+      <div class="flex flex-wrap gap-3 mb-6">
+        <a class="bg-primary-container text-on-primary px-6 py-2 rounded text-label-md font-label-md hover:bg-primary transition-colors inline-flex items-center gap-2" href="${u.applyUrl}" target="_blank" rel="noopener"><span class="material-symbols-outlined text-sm">description</span> Official Application</a>
+        <a class="border border-primary-container text-primary-container px-6 py-2 rounded text-label-md font-label-md hover:bg-surface transition-colors inline-flex items-center gap-2" href="${u.isoUrl}" target="_blank" rel="noopener"><span class="material-symbols-outlined text-sm">public</span> International Office</a>
+        <button class="border border-primary-container text-primary-container px-6 py-2 rounded text-label-md font-label-md hover:bg-surface transition-colors inline-flex items-center gap-2 ${isFav(u.id) ? "bg-primary-container text-on-primary" : ""}" id="modalFav">${isFav(u.id) ? "★ Saved to My Applications" : "☆ Track this school"}</button>
+      </div>
+      ${statsCard}
+      <h3 class="text-headline-md font-headline-md text-primary-container mb-2">Key Information</h3>
+      <ul class="flex flex-col">${listItems}</ul>
+      ${(u.strongSubjectsEn && u.strongSubjectsEn.length) ? `
+      <div class="mt-6">
+        <h3 class="text-headline-md font-headline-md text-primary-container mb-2">Strong subjects</h3>
+        <div class="flex flex-wrap gap-2">${u.strongSubjectsEn.map(s => `<span class="px-2 py-1 bg-surface-variant text-on-surface text-label-sm rounded-sm">${s}</span>`).join("")}</div>
+      </div>` : ""}
+      ${(u.strengthsEn && u.strengthsEn.length) ? `
+      <div class="mt-6">
+        <h3 class="text-headline-md font-headline-md text-primary-container mb-2">Strengths</h3>
+        <ul class="flex flex-col gap-2">${u.strengthsEn.map(s => `<li class="flex gap-2 text-body-md text-on-surface"><span class="material-symbols-outlined text-secondary text-sm mt-1">star</span><span>${s}</span></li>`).join("")}</ul>
+      </div>` : ""}
+      ${majorsBlock}
+      ${programsBlock}
+      <div class="mt-6">
+        <h3 class="text-headline-md font-headline-md text-primary-container mb-2">Location</h3>
+        <div class="w-full h-48 bg-surface-container-low rounded border border-neutral-card flex items-center justify-center relative overflow-hidden">
+          <span class="material-symbols-outlined text-primary-container/20 text-[72px] absolute">map</span>
+          <div class="relative z-10 bg-surface-container-lowest/90 border border-neutral-card px-3 py-1 rounded text-label-sm font-label-sm text-on-surface shadow-sm">${u.city}, China</div>
+        </div>
+      </div>
+      <div class="mt-6">
+        <h3 class="text-headline-md font-headline-md text-primary-container mb-2">Why students pick it</h3>
+        <ul class="flex flex-col gap-2">${(u.highlights||[]).map(h => `<li class="flex gap-2 text-body-md text-on-surface"><span class="material-symbols-outlined text-secondary text-sm mt-1">check_circle</span><span>${h}</span></li>`).join("")}</ul>
+      </div>`;
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    const mf = document.getElementById("modalFav");
+    if (mf) mf.addEventListener("click", function() {
+      toggleFav(id);
+      const on = isFav(id);
+      mf.textContent = on ? "★ Saved to My Applications" : "☆ Track this school";
+      mf.classList.toggle("bg-primary-container", on);
+      mf.classList.toggle("text-on-primary", on);
+    });
+  }
+  function closeModal() { modal.hidden = true; document.body.classList.remove("modal-open"); }
 
-  <div id="reportModal" class="modal-mask" hidden></div>
+  function bindDetailButtons() {
+    document.querySelectorAll("[data-detail]").forEach(b => b.addEventListener("click", () => openModal(b.getAttribute("data-detail"))));
+  }
+  grid.addEventListener("click", e => {
+    const f = e.target.closest("[data-fav]"); if (f) { toggleFav(f.getAttribute("data-fav")); return; }
+    const c = e.target.closest("[data-cmp]"); if (c) { toggleCmp(c.getAttribute("data-cmp")); return; }
+  });
 
-  <script src="data.js"></script>
-  <script src="mock.js"></script>
-  <script src="found-anim.js"></script>
-  <script src="icons.js"></script>
-  <script src="root.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+  // ---- Events: directory ----
+  const fDegree = document.getElementById("fDegree");
+  const fCsca = document.getElementById("fCsca");
+  const fRegion = document.getElementById("fRegion");
+  const fTier = document.getElementById("fTier");
+  function chipHandler(container) {
+    container.addEventListener("click", e => {
+      const btn = e.target.closest(".chip"); if (!btn) return;
+      const filter = btn.getAttribute("data-filter");
+      const value = btn.getAttribute("data-value");
+      if (filter === "english") { /* handled by checkbox */ }
+      else if (filter === "csca") {
+        const i = state.csca.indexOf(value);
+        if (i === -1) state.csca.push(value); else state.csca.splice(i, 1);
+        btn.classList.toggle("active", i === -1);
+      } else if (filter === "region") {
+        state.region = state.region === value ? null : value;
+        container.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        if (state.region) btn.classList.add("active");
+      } else if (filter === "degree") {
+        state.degree = state.degree === value ? null : value;
+        container.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        if (state.degree) btn.classList.add("active");
+      } else if (filter === "tier") {
+        state.tier = state.tier === value ? null : value;
+        container.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        if (state.tier) btn.classList.add("active");
+      }
+      render();
+    });
+  }
+  chipHandler(fDegree); chipHandler(fCsca); chipHandler(fRegion); chipHandler(fTier);
+
+  fEnglish.addEventListener("change", e => { state.english = e.target.checked; render(); });
+
+  const searchInput = document.getElementById("topSearch");
+  searchInput.addEventListener("input", e => { state.search = e.target.value; render(); });
+
+  viewToggle.addEventListener("click", e => {
+    const btn = e.target.closest(".chip-view"); if (!btn) return;
+    state.view = btn.getAttribute("data-view");
+    viewToggle.querySelectorAll(".chip-view").forEach(c => {
+      const on = c === btn;
+      c.classList.toggle("active", on);
+      c.classList.toggle("bg-primary-container", on);
+      c.classList.toggle("text-white", on);
+      c.classList.toggle("border-primary-container", on);
+      c.classList.toggle("bg-surface", !on);
+      c.classList.toggle("text-on-surface-variant", !on);
+      c.classList.toggle("border-outline-variant", !on);
+    });
+    render();
+  });
+
+  document.getElementById("reset").addEventListener("click", () => {
+    state.search = ""; state.degree = null; state.english = false; state.region = null; state.tier = null; state.csca = [];
+    searchInput.value = ""; fEnglish.checked = false;
+    document.querySelectorAll("#fDegree .chip, #fCsca .chip, #fRegion .chip, #fTier .chip").forEach(c => c.classList.remove("active"));
+    render();
+  });
+
+  modalClose.addEventListener("click", closeModal);
+  modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+
+  // ---- Hover tooltip: 优势学科 & 学校优点 ----
+  const schoolTip = document.createElement("div");
+  schoolTip.className = "school-tip";
+  schoolTip.setAttribute("role", "tooltip");
+  schoolTip.hidden = true;
+  document.body.appendChild(schoolTip);
+
+  function tipHTML(u) {
+    const strong = (u.strongSubjectsEn || u.strongSubjects || []).map(s => `<span class="tip-chip">${s}</span>`).join("");
+    const stre = (u.strengthsEn || u.strengths || []).map(s => `<li><span class="tip-dot"></span>${s}</li>`).join("");
+    return `
+      <div class="tip-head">
+        <span class="tip-badge" style="background:${u.color || "#bb0027"}">${badgeEn(u.nameEn)}</span>
+        <div><div class="tip-name">${u.nameEn}</div><div class="tip-en">${u.city}, China</div></div>
+      </div>
+      ${strong ? `<div class="tip-sec"><div class="tip-label">Strong subjects</div><div class="tip-chips">${strong}</div></div>` : ""}
+      ${stre ? `<div class="tip-sec"><div class="tip-label">Strengths</div><ul class="tip-list">${stre}</ul></div>` : ""}`;
+  }
+  let tipX = 0, tipY = 0; // cursor position (viewport coords)
+  function positionTip() {
+    const tw = schoolTip.offsetWidth, th = schoolTip.offsetHeight;
+    const vw = document.documentElement.clientWidth, vh = document.documentElement.clientHeight;
+    const sx = window.scrollX, sy = window.scrollY;
+    // tipX/Y are viewport coords; convert to document coords for absolute positioning
+    let left = sx + tipX + 16;
+    let top = sy + tipY + 16;
+    // flip to the left of cursor if overflowing right edge
+    if (left + tw > sx + vw - 8) left = sx + tipX - tw - 16;
+    // flip above cursor if overflowing bottom edge
+    if (top + th > sy + vh - 8) top = sy + tipY - th - 16;
+    // hard clamp into viewport
+    if (left < sx + 8) left = sx + 8;
+    if (top < sy + 8) top = sy + 8;
+    schoolTip.style.left = left + "px";
+    schoolTip.style.top = top + "px";
+  }
+  function showTip(cardEl, ev) {
+    const id = cardEl.getAttribute("data-id");
+    const u = UNIVERSITIES.find(x => x.id === id);
+    if (!u) return;
+    schoolTip.innerHTML = tipHTML(u);
+    schoolTip.hidden = false;
+    tipX = ev.clientX; tipY = ev.clientY;
+    positionTip();
+  }
+  function hideTip() { schoolTip.hidden = true; }
+  grid.addEventListener("mouseover", e => { const c = e.target.closest(".card-hover"); if (c) showTip(c, e); });
+  grid.addEventListener("mousemove", e => { if (!schoolTip.hidden) { tipX = e.clientX; tipY = e.clientY; positionTip(); } });
+  grid.addEventListener("mouseout", e => {
+    const c = e.target.closest(".card-hover");
+    if (c && !(c.contains(e.relatedTarget))) hideTip();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+  // ---- Exam-day prep ----
+  function examCardHTML(e, lang) {
+    const i18n = (lang !== "zh" && EXAM_I18N[e.id] && EXAM_I18N[e.id][lang]) ? EXAM_I18N[e.id][lang] : { title: e.title, summary: e.summary, before: e.before, fix: e.fix, tip: e.tip };
+    const labels = EXAM_LABELS[lang] || EXAM_LABELS.zh;
+    const cardChecks = examChecks[e.id] || [];
+    const items = i18n.before || [];
+    const total = items.length;
+    const doneCount = items.filter((_, i) => cardChecks[i]).length;
+    const pct = total ? Math.round(doneCount / total * 100) : 0;
+    const before = items.map((b, i) =>
+      `<li class="flex items-start gap-2 py-1"><label class="flex items-start gap-2 cursor-pointer text-body-md text-on-surface"><input type="checkbox" data-card="${e.id}" data-idx="${i}" ${cardChecks[i] ? "checked" : ""} class="mt-1"> <span>${b}</span></label></li>`).join("");
+    return `
+      <article class="bg-surface-container-lowest border border-neutral-card rounded p-6 flex flex-col gap-3">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded flex items-center justify-center text-white flex-shrink-0" style="background:${e.color}">${e.icon}</div>
+          <div><h3 class="text-headline-md font-headline-md text-primary-container leading-tight">${i18n.title}</h3><p class="text-label-sm text-on-surface-variant">${e.en}</p></div>
+        </div>
+        <p class="text-body-md text-on-surface-variant">${i18n.summary}</p>
+        <div class="bg-surface-container-low rounded p-3">
+          <h4 class="text-label-md font-label-md text-primary-container mb-2 flex justify-between">${labels.before} <span class="card-progress text-on-surface-variant">${doneCount}/${total}</span></h4>
+          <div class="pbar mb-2"><i style="width:${pct}%"></i></div>
+          <ul class="flex flex-col">${before}</ul>
+        </div>
+        <div class="bg-surface-container-low rounded p-3">
+          <h4 class="text-label-md font-label-md text-secondary mb-1">${labels.fix}</h4>
+          <p class="text-body-md text-on-surface-variant">${i18n.fix}</p>
+        </div>
+        <p class="text-label-md text-on-surface-variant">${e.tip}</p>
+      </article>`;
+  }
+  function bindExamChecks() {
+    examCards.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.addEventListener("change", ev => {
+      const card = ev.target.getAttribute("data-card");
+      const idx = parseInt(ev.target.getAttribute("data-idx"), 10);
+      if (!examChecks[card]) examChecks[card] = [];
+      examChecks[card][idx] = ev.target.checked;
+      try { localStorage.setItem("csca_exam_check_v1", JSON.stringify(examChecks)); } catch (e) {}
+      updateExamProgress();
+      const cardEl = ev.target.closest(".exam-card") || ev.target.closest("article");
+      if (cardEl) {
+        const total = cardEl.querySelectorAll('input[type="checkbox"]').length;
+        const done = cardEl.querySelectorAll('input[type="checkbox"]:checked').length;
+        const pct = total ? Math.round(done / total * 100) : 0;
+        const cp = cardEl.querySelector(".card-progress"); if (cp) cp.textContent = done + "/" + total;
+        const bar = cardEl.querySelector(".pbar > i"); if (bar) bar.style.width = pct + "%";
+      }
+    }));
+  }
+  function updateExamProgress() {
+    let total = 0, done = 0;
+    EXAM_PREP.forEach(e => {
+      const items = (e.before || []).length; total += items;
+      const cc = examChecks[e.id] || [];
+      for (let i = 0; i < items; i++) if (cc[i]) done++;
+    });
+    const pct = total ? Math.round(done / total * 100) : 0;
+    const txt = document.getElementById("examOverallText");
+    const bar = document.getElementById("examOverallBar");
+    if (txt) txt.textContent = "考前准备 " + done + "/" + total + " 已完成 (" + pct + "%)";
+    if (bar) bar.style.width = pct + "%";
+  }
+  function renderExam() {
+    const lang = state.examLang;
+    examCards.setAttribute("dir", (lang === "ur" || lang === "ar") ? "rtl" : "ltr");
+    examCards.innerHTML = EXAM_PREP.map(e => examCardHTML(e, lang)).join("");
+    bindExamChecks();
+    updateExamProgress();
+  }
+  const examLangBox = document.getElementById("examLang");
+  examLangBox.addEventListener("click", e => {
+    const btn = e.target.closest(".lang-btn"); if (!btn) return;
+    state.examLang = btn.getAttribute("data-lang");
+    try { localStorage.setItem("csca_exam_lang", state.examLang); } catch (err) {}
+    examLangBox.querySelectorAll(".lang-btn").forEach(b => {
+      const on = b === btn;
+      b.classList.toggle("active", on);
+      b.classList.toggle("bg-primary-container", on);
+      b.classList.toggle("text-white", on);
+      b.classList.toggle("border-primary-container", on);
+      b.classList.toggle("bg-surface", !on);
+      b.classList.toggle("text-on-surface-variant", !on);
+      b.classList.toggle("border-outline-variant", !on);
+    });
+    renderExam();
+  });
+  examLangBox.querySelectorAll(".lang-btn").forEach(b => {
+    const on = b.getAttribute("data-lang") === state.examLang;
+    b.classList.toggle("active", on);
+    b.classList.toggle("bg-primary-container", on);
+    b.classList.toggle("text-white", on);
+    b.classList.toggle("border-primary-container", on);
+    b.classList.toggle("bg-surface", !on);
+    b.classList.toggle("text-on-surface-variant", !on);
+    b.classList.toggle("border-outline-variant", !on);
+  });
+  renderExam();
+
+  // ---- View switching ----
+  function showView(name) {
+    state.main = name;
+    document.getElementById("view-directory").hidden = name !== "directory";
+    document.getElementById("view-exam").hidden = name !== "exam";
+    document.getElementById("view-scholarships").hidden = name !== "scholarships";
+    document.getElementById("view-applications").hidden = name !== "applications";
+    if (name === "applications") renderApps();
+    mainnav.querySelectorAll(".navtab").forEach(c => {
+      const on = c.getAttribute("data-main") === name;
+      c.classList.toggle("active", on);
+      c.classList.toggle("text-primary", on);
+      c.classList.toggle("text-on-surface-variant", !on);
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  mainnav.addEventListener("click", e => {
+    const btn = e.target.closest(".navtab"); if (!btn) return;
+    const m = btn.getAttribute("data-main");
+    if (m) showView(m);
+  });
+  document.querySelectorAll("[data-go]").forEach(el => el.addEventListener("click", () => {
+    const go = el.getAttribute("data-go");
+    if (go === "csca") { window.location.href = "csca-learn/index.html"; return; }
+    showView(go);
+  }));
+
+  // ---- Scholarships ----
+  const schList = document.getElementById("schList");
+  const schEmpty = document.getElementById("schEmpty");
+  const schCount = document.getElementById("schCount");
+  const schPager = document.getElementById("schPager");
+  const schModal = document.getElementById("schModal");
+  const schModalBody = document.getElementById("schModalBody");
+  const schModalClose = document.getElementById("schModalClose");
+  const SCH_PAGE = 6;
+  const SCH_ICON = { csc: "flag", provincial: "account_balance", university: "school" };
+  const SCH_FUND_LABEL = { full: "Full Funding", partial: "Partial Funding", "full/partial": "Full / Partial" };
+  const SCH_DEG_LABEL = { undergrad: "Undergraduate", grad: "Postgraduate", phd: "PhD" };
+
+  Object.assign(state, {
+    schSearch: "", schDegree: [], schRegion: "", schFunding: "", schCat: "", schGpa: 4.0, schPage: 1
+  });
+
+  (function initSchRegion() {
+    const sel = document.getElementById("schRegion");
+    const regions = Array.from(new Set(SCHOLARSHIPS.map(s => s.region)));
+    regions.forEach(r => {
+      const o = document.createElement("option");
+      o.value = r === "" ? "National" : r;
+      o.textContent = r === "" ? "National (all regions)" : r;
+      sel.appendChild(o);
+    });
+  })();
+
+  function getFilteredSch() {
+    const q = state.schSearch.trim().toLowerCase();
+    return SCHOLARSHIPS.filter(s => {
+      if (q && !(s.name + " " + s.provider + " " + s.category).toLowerCase().includes(q)) return false;
+      if (state.schDegree.length && !s.degree.some(d => state.schDegree.includes(d))) return false;
+      if (state.schRegion) {
+        if (state.schRegion === "National") { if (s.region !== "") return false; }
+        else if (s.region !== state.schRegion) return false;
+      }
+      if (state.schFunding && s.funding !== state.schFunding) return false;
+      if (state.schCat && s.category !== state.schCat) return false;
+      if (s.gpaMin > state.schGpa) return false;
+      return true;
+    });
+  }
+
+  function schRowHTML(s) {
+    const fundBadge = `<span class="bg-tertiary-container text-on-tertiary px-2 py-0.5 rounded-sm text-label-sm text-[10px] uppercase">${SCH_FUND_LABEL[s.funding]}</span>`;
+    const degBadges = s.degree.map(d => `<span class="bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded-sm text-label-sm text-[10px] uppercase">${SCH_DEG_LABEL[d]}</span>`).join("");
+    const dl = schDeadlineInfo(s);
+    const dlBadge = dl && dl.urgent ? `<span class="ml-2 px-2 py-0.5 bg-error-container text-on-error-container text-label-sm rounded-sm">Closing soon</span>` : "";
+    return `
+      <div class="bg-surface-container-lowest border border-neutral-card rounded p-6 flex flex-col sm:flex-row gap-6 items-start sm:items-center hover:bg-surface-container-low transition-colors">
+        <div class="w-16 h-16 bg-surface-container rounded flex items-center justify-center flex-shrink-0 border border-outline-variant">
+          <span class="material-symbols-outlined text-primary-container text-[32px]">${SCH_ICON[s.category] || "school"}</span>
+        </div>
+        <div class="flex-grow">
+          <div class="flex flex-wrap items-center gap-2 mb-1">${fundBadge}${degBadges}</div>
+          <h4 class="text-headline-md font-headline-md text-primary-container mb-1">${s.name}</h4>
+          <p class="text-body-md text-on-surface-variant">${s.provider} • Deadline: ${s.deadline}${dlBadge}</p>
+        </div>
+        <div class="flex flex-col sm:items-end gap-2 w-full sm:w-auto mt-4 sm:mt-0">
+          <a class="w-full sm:w-auto bg-primary-container text-on-primary px-4 py-2 rounded text-label-md font-label-md hover:bg-primary transition-colors whitespace-nowrap text-center" href="${s.link}" target="_blank" rel="noopener">Apply Now</a>
+          <button class="w-full sm:w-auto bg-transparent border border-primary-container text-primary-container px-4 py-2 rounded text-label-md font-label-md hover:bg-primary-container/5 whitespace-nowrap" data-sch="${s.id}">View Details</button>
+        </div>
+      </div>`;
+  }
+
+  function renderScholarships() {
+    const list = getFilteredSch();
+    const totalPages = Math.max(1, Math.ceil(list.length / SCH_PAGE));
+    if (state.schPage > totalPages) state.schPage = totalPages;
+    const start = (state.schPage - 1) * SCH_PAGE;
+    const pageItems = list.slice(start, start + SCH_PAGE);
+    schList.innerHTML = pageItems.map(schRowHTML).join("");
+    schEmpty.hidden = list.length !== 0;
+    schCount.textContent = "Showing " + list.length + (state.schCat ? " · " + state.schCat : "");
+    // pager
+    let p = "";
+    p += `<button class="sch-prev w-10 h-10 border border-outline-variant rounded flex items-center justify-center text-on-surface-variant hover:border-primary-container hover:text-primary-container transition-colors disabled:opacity-40" ${state.schPage <= 1 ? "disabled" : ""}><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>`;
+    for (let i = 1; i <= totalPages; i++) {
+      p += `<button class="sch-page w-10 h-10 border rounded flex items-center justify-center text-label-md font-label-md ${i === state.schPage ? "border-primary-container bg-primary-container text-on-primary" : "border-outline-variant text-on-surface-variant hover:border-primary-container hover:text-primary-container transition-colors"}" data-page="${i}">${i}</button>`;
+    }
+    p += `<button class="sch-next w-10 h-10 border border-outline-variant rounded flex items-center justify-center text-on-surface-variant hover:border-primary-container hover:text-primary-container transition-colors disabled:opacity-40" ${state.schPage >= totalPages ? "disabled" : ""}><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>`;
+    schPager.innerHTML = p;
+    bindSchDetail();
+  }
+
+  function openSchModal(id) {
+    const s = SCHOLARSHIPS.find(x => x.id === id);
+    if (!s) return;
+    const degBadges = s.degree.map(d => `<span class="bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded-sm text-label-sm uppercase">${SCH_DEG_LABEL[d]}</span>`).join(" ");
+    schModalBody.innerHTML = `
+      <div class="flex items-start gap-4 mb-6">
+        <div class="w-14 h-14 bg-surface-container rounded flex items-center justify-center flex-shrink-0 border border-outline-variant">
+          <span class="material-symbols-outlined text-primary-container text-[32px]">${SCH_ICON[s.category] || "school"}</span>
+        </div>
+        <div>
+          <span class="inline-flex items-center gap-1 text-secondary text-label-sm font-label-sm uppercase tracking-wider mb-1">
+            <span class="material-symbols-outlined text-[16px]">${s.category === "csc" ? "stars" : s.category === "provincial" ? "account_balance" : "school"}</span>
+            ${s.category === "csc" ? "Government" : s.category === "provincial" ? "Provincial / Municipal" : "University-Specific"}
+          </span>
+          <h2 class="text-headline-lg font-headline-lg text-primary-container">${s.name}</h2>
+          <p class="text-body-md text-on-surface-variant">${s.provider}</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-4">${degBadges}<span class="bg-tertiary-container text-on-tertiary px-2 py-0.5 rounded-sm text-label-sm uppercase">${SCH_FUND_LABEL[s.funding]}</span></div>
+      <p class="text-body-md text-on-surface mb-6">${s.blurb}</p>
+      <ul class="flex flex-col border-t border-neutral-divider">
+        <li class="flex justify-between gap-3 py-3 border-b border-neutral-divider"><span class="text-label-sm uppercase text-on-surface-variant">Min GPA (4.0)</span><span class="text-body-md text-on-surface font-medium">${s.gpaMin.toFixed(1)}</span></li>
+        <li class="flex justify-between gap-3 py-3 border-b border-neutral-divider"><span class="text-label-sm uppercase text-on-surface-variant">Region</span><span class="text-body-md text-on-surface font-medium">${s.region === "" ? "National (all regions)" : s.region}</span></li>
+        <li class="flex justify-between gap-3 py-3 border-b border-neutral-divider"><span class="text-label-sm uppercase text-on-surface-variant">Deadline</span><span class="text-body-md text-on-surface font-medium">${s.deadline}</span></li>
+      </ul>
+      <div class="mt-6 flex gap-3">
+        <a class="bg-primary-container text-on-primary px-6 py-2 rounded text-label-md font-label-md hover:bg-primary transition-colors" href="${s.link}" target="_blank" rel="noopener">Apply on official site →</a>
+      </div>`;
+    schModal.hidden = false;
+    document.body.classList.add("modal-open");
+  }
+  function closeSchModal() { schModal.hidden = true; document.body.classList.remove("modal-open"); }
+
+  function bindSchDetail() {
+    document.querySelectorAll("[data-sch]").forEach(b => b.addEventListener("click", () => openSchModal(b.getAttribute("data-sch"))));
+  }
+
+  // scholarships events
+  document.getElementById("schSearch").addEventListener("input", e => { state.schSearch = e.target.value; state.schPage = 1; renderScholarships(); });
+  document.querySelectorAll(".sch-degree").forEach(cb => cb.addEventListener("change", e => {
+    const v = e.target.value;
+    if (e.target.checked) { if (!state.schDegree.includes(v)) state.schDegree.push(v); }
+    else state.schDegree = state.schDegree.filter(x => x !== v);
+    state.schPage = 1; renderScholarships();
+  }));
+  document.getElementById("schRegion").addEventListener("change", e => { state.schRegion = e.target.value; state.schPage = 1; renderScholarships(); });
+  document.querySelectorAll(".sch-funding").forEach(btn => btn.addEventListener("click", () => {
+    const v = btn.getAttribute("data-funding");
+    state.schFunding = state.schFunding === v ? "" : v;
+    document.querySelectorAll(".sch-funding").forEach(c => {
+      const on = c === btn && state.schFunding === v;
+      c.classList.toggle("active", on);
+      c.classList.toggle("bg-primary-container", on);
+      c.classList.toggle("text-white", on);
+      c.classList.toggle("border-primary-container", on);
+      c.classList.toggle("bg-surface", !on);
+      c.classList.toggle("text-on-surface-variant", !on);
+      c.classList.toggle("border-outline-variant", !on);
+    });
+    state.schPage = 1; renderScholarships();
+  }));
+  const schGpa = document.getElementById("schGpa");
+  schGpa.addEventListener("input", e => {
+    state.schGpa = parseFloat(e.target.value);
+    document.getElementById("schGpaVal").textContent = state.schGpa.toFixed(1);
+    state.schPage = 1; renderScholarships();
+  });
+  document.getElementById("schReset").addEventListener("click", () => {
+    state.schSearch = ""; state.schDegree = []; state.schRegion = ""; state.schFunding = ""; state.schCat = ""; state.schGpa = 4.0; state.schPage = 1;
+    document.getElementById("schSearch").value = "";
+    document.querySelectorAll(".sch-degree").forEach(c => c.checked = false);
+    document.getElementById("schRegion").value = "";
+    schGpa.value = 4.0; document.getElementById("schGpaVal").textContent = "4.0";
+    document.querySelectorAll(".sch-funding").forEach(c => { c.classList.remove("active", "bg-primary-container", "text-white", "border-primary-container"); c.classList.add("bg-surface", "text-on-surface-variant", "border-outline-variant"); });
+    document.querySelectorAll(".sch-cat").forEach(c => c.classList.remove("active", "border-primary-container"));
+    renderScholarships();
+  });
+  document.querySelectorAll(".sch-cat").forEach(card => card.addEventListener("click", () => {
+    const v = card.getAttribute("data-schcat");
+    state.schCat = state.schCat === v ? "" : v;
+    document.querySelectorAll(".sch-cat").forEach(c => {
+      const on = c === card && state.schCat === v;
+      c.classList.toggle("active", on);
+      c.classList.toggle("border-primary-container", on);
+    });
+    state.schPage = 1; renderScholarships();
+  }));
+  schPager.addEventListener("click", e => {
+    const prev = e.target.closest(".sch-prev"); const next = e.target.closest(".sch-next"); const pg = e.target.closest(".sch-page");
+    if (prev) state.schPage--; else if (next) state.schPage++; else if (pg) state.schPage = parseInt(pg.getAttribute("data-page"), 10);
+    else return;
+    renderScholarships();
+  });
+  schModalClose.addEventListener("click", closeSchModal);
+  schModal.addEventListener("click", e => { if (e.target === schModal) closeSchModal(); });
+
+  // ---- My Applications view ----
+  function appCardHTML(u) {
+    const a = APPS[u.id] || {};
+    const docs = a.docs || {};
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    let hint = "";
+    if (a.deadline) {
+      const d = new Date(a.deadline + "T00:00:00");
+      const days = Math.round((d - today) / 86400000);
+      hint = days > 30
+        ? `<span class="px-2 py-0.5 bg-surface text-on-surface-variant text-label-sm rounded-sm">${days} days left</span>`
+        : days >= 0
+          ? `<span class="px-2 py-0.5 bg-error-container text-on-error-container text-label-sm rounded-sm">${days} days left</span>`
+          : `<span class="px-2 py-0.5 bg-error-container text-on-error-container text-label-sm rounded-sm">Overdue</span>`;
+    }
+    const statusOpts = Object.entries(APP_STATUS).map(([k, v]) => `<option value="${k}" ${(a.status || "notstarted") === k ? "selected" : ""}>${v}</option>`).join("");
+    const docBoxes = APP_DOCS.map(d => `<label><input type="checkbox" data-uni="${u.id}" data-app-doc="${d}" ${docs[d] ? "checked" : ""}> ${d}</label>`).join("");
+    return `
+      <div class="app-card" data-uni="${u.id}">
+        <div class="app-head">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-12 flex-shrink-0">${schoolCrest(u, 40)}</div>
+            <div>
+              <h4 class="text-headline-md font-headline-md text-primary-container leading-tight">${u.nameEn}</h4>
+              <p class="text-body-md text-on-surface-variant">${u.nameZh} · ${u.city} ${hint}</p>
+            </div>
+          </div>
+          <button class="app-remove" data-remove="${u.id}">Remove</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="flex flex-col gap-1 text-label-sm font-label-sm text-on-surface-variant">Status
+            <select data-uni="${u.id}" data-app-status>${statusOpts}</select>
+          </label>
+          <label class="flex flex-col gap-1 text-label-sm font-label-sm text-on-surface-variant">Application deadline
+            <input type="date" data-uni="${u.id}" data-app-deadline value="${a.deadline || ""}">
+          </label>
+        </div>
+        <div class="app-docs grid grid-cols-2 md:grid-cols-3 gap-2">${docBoxes}</div>
+        <label class="flex flex-col gap-1 text-label-sm font-label-sm text-on-surface-variant">Notes
+          <textarea data-uni="${u.id}" data-app-notes placeholder="e.g. need HSK 5, portal link…">${a.notes || ""}</textarea>
+        </label>
+      </div>`;
+  }
+  function renderApps() {
+    const list = document.getElementById("appList");
+    const empty = document.getElementById("appEmpty");
+    const stats = document.getElementById("appStats");
+    const items = SHORTLIST.map(id => UNIVERSITIES.find(u => u.id === id)).filter(Boolean)
+      .sort((x, y) => {
+        const dx = APPS[x.id] && APPS[x.id].deadline ? APPS[x.id].deadline : "9999-12-31";
+        const dy = APPS[y.id] && APPS[y.id].deadline ? APPS[y.id].deadline : "9999-12-31";
+        return dx < dy ? -1 : dx > dy ? 1 : x.nameEn.localeCompare(y.nameEn);
+      });
+    empty.hidden = items.length !== 0;
+    list.innerHTML = items.map(appCardHTML).join("");
+    let submitted = 0, withDeadline = 0;
+    items.forEach(u => { const s = (APPS[u.id] || {}).status; if (s === "submitted" || s === "admitted") submitted++; if ((APPS[u.id] || {}).deadline) withDeadline++; });
+    stats.innerHTML =
+      `<div class="app-stat"><b class="text-headline-md text-primary-container block">${items.length}</b><span class="text-label-sm text-on-surface-variant">shortlisted</span></div>` +
+      `<div class="app-stat"><b class="text-headline-md text-primary-container block">${submitted}</b><span class="text-label-sm text-on-surface-variant">submitted</span></div>` +
+      `<div class="app-stat"><b class="text-headline-md text-primary-container block">${withDeadline}</b><span class="text-label-sm text-on-surface-variant">with deadline</span></div>`;
+    if (!items.length) renderAppEmpty();
+    bindAppEvents();
+  }
+  function renderAppEmpty() {
+    const box = document.getElementById("appSuggest");
+    if (!box) return;
+    const picks = ["tsinghua", "pku", "fudan", "sjtu", "zju"]
+      .map(id => UNIVERSITIES.find(u => u.id === id)).filter(Boolean).slice(0, 4);
+    box.innerHTML = picks.map(u =>
+      `<button class="app-suggest-btn" data-suggest="${u.id}">+ ${u.nameEn}</button>`
+    ).join("");
+    box.querySelectorAll("[data-suggest]").forEach(btn => btn.addEventListener("click", () => {
+      toggleFav(btn.getAttribute("data-suggest"));
+      renderApps();
+    }));
+  }
+  function bindAppEvents() {
+    const box = document.getElementById("appList");
+    box.querySelectorAll("[data-app-status]").forEach(s => s.addEventListener("change", () => { (APPS[s.dataset.uni] = APPS[s.dataset.uni] || {}).status = s.value; saveApps(); renderApps(); }));
+    box.querySelectorAll("[data-app-deadline]").forEach(s => s.addEventListener("change", () => { (APPS[s.dataset.uni] = APPS[s.dataset.uni] || {}).deadline = s.value; saveApps(); renderApps(); }));
+    box.querySelectorAll("[data-app-doc]").forEach(c => c.addEventListener("change", () => { const a = APPS[c.dataset.uni] || (APPS[c.dataset.uni] = {}); a.docs = a.docs || {}; a.docs[c.dataset.appDoc] = c.checked; saveApps(); }));
+    box.querySelectorAll("[data-app-notes]").forEach(t => t.addEventListener("change", () => { const a = APPS[t.dataset.uni] || (APPS[t.dataset.uni] = {}); a.notes = t.value; saveApps(); }));
+    box.querySelectorAll("[data-remove]").forEach(b => b.addEventListener("click", () => { toggleFav(b.dataset.remove); renderApps(); }));
+  }
+
+  // ---- Compare (up to 3) ----
+  function renderCmpBar() {
+    const bar = document.getElementById("cmpBar");
+    const names = document.getElementById("cmpNames");
+    if (!CMP.length) { bar.hidden = true; return; }
+    names.textContent = CMP.map(id => { const u = UNIVERSITIES.find(x => x.id === id); return u ? u.nameEn.replace(/^(University of|The)\s+/i, "").split(" ").slice(0, 2).join(" ") : ""; }).filter(Boolean).join("  ·  ");
+    bar.hidden = false;
+  }
+  const CMP_ROWS = [
+    ["City", u => u.city],
+    ["Tier", u => u.tier || "—"],
+    ["Type", u => (u.types || []).join(", ") || "—"],
+    ["Degree levels", u => [u.undergrad && "Undergraduate", u.graduate && "Master's / PhD"].filter(Boolean).join(", ") || "—"],
+    ["CSCA subjects", u => cscaEn(u.cscaSubjects).join(", ") || "—"],
+    ["English-taught", u => u.englishTaught || "—"],
+    ["Application window", u => u.deadline || "—"],
+    ["Tuition (indicative)", u => u.tuition || "—"],
+    ["Strong subjects", u => (u.strongSubjectsEn || []).slice(0, 6).map(s => `<span class="cmp-chip">${s}</span>`).join(" ") || "—"],
+    ["Strengths", u => (u.strengthsEn || []).slice(0, 4).map(s => "• " + s).join("<br>") || "—"]
+  ];
+  function renderCmpModal() {
+    const body = document.getElementById("cmpBody");
+    const us = CMP.map(id => UNIVERSITIES.find(x => x.id === id)).filter(Boolean);
+    if (!us.length) { body.innerHTML = "<p class='text-on-surface-variant'>Select schools in the Directory to compare.</p>"; return; }
+    let html = `<table class="cmp-table"><thead><tr><th style="width:150px"></th>` +
+      us.map(u => `<th><div class="flex items-center gap-2">${schoolCrest(u, 36)}<div><div class="cmp-name">${u.nameEn}</div><div style="font-weight:400;text-transform:none;letter-spacing:0;color:#64748b;font-size:12px">${u.nameZh} · ${u.city}</div></div></div></th>`).join("") +
+      `</tr></thead><tbody>`;
+    CMP_ROWS.forEach(([label, fn]) => {
+      html += `<tr><td class="rowhead">${label}</td>` + us.map(u => `<td>${fn(u)}</td>`).join("") + `</tr>`;
+    });
+    html += "</tbody></table>";
+    body.innerHTML = html;
+  }
+  document.getElementById("cmpGo").addEventListener("click", () => { renderCmpModal(); document.getElementById("cmpModal").hidden = false; document.body.classList.add("modal-open"); });
+  document.getElementById("cmpClear").addEventListener("click", () => { CMP = []; saveCmp(); syncCardButtons(); renderCmpBar(); });
+  document.getElementById("cmpModalClose").addEventListener("click", () => { document.getElementById("cmpModal").hidden = true; document.body.classList.remove("modal-open"); });
+  document.getElementById("cmpModal").addEventListener("click", e => { if (e.target === e.currentTarget) { e.currentTarget.hidden = true; document.body.classList.remove("modal-open"); } });
+
+  // ---- Scholarship deadline reminder (annual window, indicative) ----
+  const SCH_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  function schDeadlineInfo(s) {
+    const m = (s.deadline || "").match(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/g);
+    if (!m || !m.length) return null;
+    const start = SCH_MONTHS.indexOf(m[0]) + 1;
+    const now = new Date(); const ym = now.getMonth() + 1;
+    const occ = start < ym ? start + 12 : start;
+    const d = new Date(now.getFullYear() + (occ >= 13 ? 1 : 0), (occ - 1) % 12, 28);
+    const days = Math.round((d - now) / 86400000);
+    return { days, urgent: days <= 60 };
+  }
+
+  // ---- Init ----
+  render();
+  renderScholarships();
+  renderCmpBar();
+})();
+</script>
+</body></html>
