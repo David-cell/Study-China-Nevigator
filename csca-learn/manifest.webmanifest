@@ -1,0 +1,13 @@
+{
+  "name": "CSCA Basics — 底层知识图谱与基础补强",
+  "short_name": "CSCA Basics",
+  "description": "来华留学 CSCA 备考：知识库、学术中文、手算训练、仪器模拟、80 题模考",
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f7f8fa",
+  "theme_color": "#3b82f6",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
