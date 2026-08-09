@@ -184,10 +184,8 @@ function universitiesHub() {
 <h1>Chinese Universities for International Students</h1>
 <div class="zh">${UNIVERSITIES.length} schools, with admissions, English-taught options, CSC scholarships and deadlines.</div>
 <div class="cta">
-  Prefer the filterable, interactive version? <a href="index.html">Open the directory &rarr;</a>
-</div>
-<div class="cta" style="border-color:var(--navy)">
-  Applying this cycle? <a href="csc-kit.html">Get the free CSC deadline tracker + paid application kit &rarr;</a>
+  Prefer the filterable, interactive version? <a href="index.html">Open the directory &rarr;</a><br>
+  Applying this cycle? <a href="kit.html">Get the free CSC deadline tracker + checklist &rarr;</a>
 </div>
 <div class="card"><ul style="list-style:none;padding-left:0">${rows}</ul></div>
 `;
@@ -405,12 +403,12 @@ written.push(write('universities.html', universitiesHub()));
 written.push(write('scholarships.html', scholarshipsPage()));
 for (const u of UNIVERSITIES) written.push(write(`uni/${u.id}.html`, uniPage(u)));
 for (const [slug, g] of Object.entries(guides)) {
-  const kitCta = `\n<div class="cta" style="border-color:var(--navy)">Applying this cycle? <a href="${BASE}/csc-kit.html">Get the free CSC deadline tracker + paid application kit &rarr;</a></div>`;
+  const kitCta = `\n<div class="cta" style="border-color:var(--red)">Applying this cycle? <a href="${BASE}/kit.html">Get the free CSC deadline tracker + checklist &rarr;</a></div>`;
   written.push(write(`guides/${slug}.html`, page(g.title, g.desc, g.body + kitCta, null, `${BASE}/guides/${slug}.html`)));
 }
 
 // ---- sitemap.xml ----
-const urls = [`${BASE}/`, `${BASE}/csca-learn/`, `${BASE}/universities.html`, `${BASE}/scholarships.html`, `${BASE}/csc-kit.html`];
+const urls = [`${BASE}/`, `${BASE}/csca-learn/`, `${BASE}/universities.html`, `${BASE}/scholarships.html`, `${BASE}/kit.html`];
 for (const u of UNIVERSITIES) urls.push(`${BASE}/uni/${u.id}.html`);
 for (const slug of Object.keys(guides)) urls.push(`${BASE}/guides/${slug}.html`);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
