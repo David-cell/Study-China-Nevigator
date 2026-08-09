@@ -2,6 +2,25 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>StudyChina Navigator — Apply to Chinese Universities</title>
+<meta name="description" content="Directory of Chinese universities and government scholarships for international students. Compare 150+ schools, English-taught programs, CSC funding, deadlines and how to apply.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://david-cell.github.io/Study-China-Nevigator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="StudyChina Navigator — Apply to Chinese Universities">
+<meta property="og:description" content="Compare 150+ Chinese universities and CSC scholarships for international students — English-taught options, deadlines, and how to apply.">
+<meta property="og:url" content="https://david-cell.github.io/Study-China-Nevigator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StudyChina Navigator — Apply to Chinese Universities">
+<meta name="twitter:description" content="Directory of Chinese universities and CSC scholarships for international students.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "StudyChina Navigator",
+  "url": "https://david-cell.github.io/Study-China-Nevigator/",
+  "description": "Directory of Chinese universities and scholarships for international students."
+}
+</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
@@ -215,6 +234,22 @@
 </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-fixed-dim selection:text-primary">
+<noscript>
+  <div style="max-width:880px;margin:40px auto;padding:0 20px;font-family:system-ui,sans-serif;color:#191c1e">
+    <h1>StudyChina Navigator</h1>
+    <p>Directory of Chinese universities and scholarships for international students. Enable JavaScript for the interactive filters, or browse the static pages:</p>
+    <ul>
+      <li><a href="universities.html">All universities</a></li>
+      <li><a href="scholarships.html">Scholarships in China</a></li>
+      <li><a href="guides/csc-2026-guide.html">CSC 2026 application guide</a></li>
+      <li><a href="uni/thu.html">Tsinghua University</a></li>
+      <li><a href="uni/pku.html">Peking University</a></li>
+      <li><a href="uni/fudan.html">Fudan University</a></li>
+      <li><a href="uni/sjtu.html">Shanghai Jiao Tong University</a></li>
+      <li><a href="uni/zju.html">Zhejiang University</a></li>
+    </ul>
+  </div>
+</noscript>
 
 <!-- ═══ Top Navigation ═══ -->
 <header class="bg-surface-container-lowest border-b border-neutral-card sticky top-0 z-40">
@@ -329,6 +364,10 @@
         </div>
       </div>
       <button id="reset" class="chip self-start px-4 py-2 bg-surface text-on-surface-variant text-label-md font-label-md rounded border border-outline-variant hover:border-primary-container transition-colors">Reset filters</button>
+        <div class="ad-slot border border-dashed border-outline-variant rounded p-4 text-center bg-surface-container-low mt-2">
+          <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wide mb-1">Advertisement</p>
+          <p class="text-body-md text-on-surface-variant text-sm">Ad slot — paste Google AdSense / Ezoic code here once approved.</p>
+        </div>
     </aside>
 
     <!-- Directory Grid -->
@@ -371,6 +410,18 @@
     <p class="text-label-md font-label-md text-on-surface-variant bg-surface-container-low border border-neutral-card rounded p-3">This is a general online-proctored-exam preparation checklist. CSCA's specific proctoring software and rules follow your admission ticket / official notice — read it through before exam day.</p>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="examCards"></div>
+    <section class="bg-surface-container-lowest border border-neutral-card rounded p-6 max-w-3xl">
+      <h3 class="text-headline-md font-headline-md text-primary-container mb-2">Never miss an exam window</h3>
+      <p class="text-body-md text-on-surface-variant mb-4">Get a free email reminder before CSCA / application deadlines. No account needed.</p>
+      <form class="lead-form flex flex-col sm:flex-row gap-2" data-lead="exam">
+        <input type="email" name="email" required placeholder="you@example.com" class="flex-grow pl-4 pr-4 py-3 border border-neutral-input rounded bg-surface-container-low focus:border-primary-container focus:outline-none font-body-md text-body-md">
+        <button type="submit" class="bg-primary-container text-on-primary px-6 py-3 rounded text-label-md font-label-md hover:bg-primary transition-colors whitespace-nowrap">Remind me</button>
+      </form>
+    </section>
+    <div class="ad-slot border border-dashed border-outline-variant rounded p-4 text-center bg-surface-container-low max-w-3xl">
+      <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wide mb-1">Advertisement</p>
+      <p class="text-body-md text-on-surface-variant text-sm">Ad slot — paste Google AdSense / Ezoic code here once approved.</p>
+    </div>
 </main>
 
 <!-- ═══ VIEW: SCHOLARSHIPS ═══ -->
@@ -383,6 +434,11 @@
     <div class="relative max-w-2xl mx-auto w-full">
       <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
       <input id="schSearch" class="w-full pl-12 pr-4 py-3 border border-neutral-input rounded bg-surface-container-low focus:border-primary-container focus:ring-2 focus:ring-primary-container/10 focus:outline-none font-body-md text-body-md transition-all" placeholder="Search by scholarship name, university, or provider…" type="text">
+      <form class="lead-form mt-4 w-full flex flex-col sm:flex-row gap-2" data-lead="scholarships">
+        <input type="email" name="email" required placeholder="Get CSC &amp; scholarship deadline reminders by email" class="flex-grow pl-4 pr-4 py-3 border border-neutral-input rounded bg-surface-container-low focus:border-primary-container focus:outline-none font-body-md text-body-md">
+        <button type="submit" class="bg-primary-container text-on-primary px-6 py-3 rounded text-label-md font-label-md hover:bg-primary transition-colors whitespace-nowrap">Email me reminders</button>
+      </form>
+      <p class="text-label-sm font-label-sm text-on-surface-variant mt-2">Free. We&rsquo;ll only email deadlines &amp; exam windows. Unsubscribe anytime.</p>
     </div>
   </section>
 
@@ -421,6 +477,10 @@
           <div class="flex justify-between mt-1 text-on-surface-variant text-label-sm font-label-sm"><span>2.0</span><span id="schGpaVal" class="text-primary-container font-bold">4.0</span><span>4.0</span></div>
         </div>
         <button id="schReset" class="chip self-start px-4 py-2 bg-surface text-on-surface-variant text-label-md font-label-md rounded border border-outline-variant hover:border-primary-container transition-colors">Reset filters</button>
+        <div class="ad-slot border border-dashed border-outline-variant rounded p-4 text-center bg-surface-container-low mt-2">
+          <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wide mb-1">Advertisement</p>
+          <p class="text-body-md text-on-surface-variant text-sm">Ad slot — paste Google AdSense / Ezoic code here once approved.</p>
+        </div>
       </div>
     </aside>
 
@@ -524,6 +584,8 @@
       <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Contact Support</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Terms of Service</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="mailto:hello@studychina.example?subject=StudyChina%20Sponsored%20Listing">Get listed / Sponsored</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="mailto:hello@studychina.example?subject=Free%20CSC%20Checklist">Free CSC checklist</a>
     </nav>
   </div>
   <div class="w-full px-margin-desktop max-w-container-max mx-auto pb-6">
@@ -570,6 +632,49 @@
     main: "directory",
     examLang: (function(){ try { return localStorage.getItem("csca_exam_lang") || "zh"; } catch(e){ return "zh"; } })()
   };
+
+  // ═══ MONETIZATION CONFIG — fill these in; safe to leave empty ═══
+  // None of this requires user login. Set the values once you open the free accounts.
+  const MON = {
+    affiliateTag: "",                 // your referral ID (e.g. "partner123") — turns on partner apply links
+    affiliateParams: {                // application-platform host -> its referral query parameter
+      "cucas.cn": "ref",
+      "at0086.cn": "ref",
+      "17gz.org": "ref"
+    },
+    formspreeEndpoint: "",            // e.g. "https://formspree.io/f/xxxxxx" — empty => mailto fallback
+    contactEmail: "hello@studychina.example",  // used for sponsored / "get listed" / fallback mailto
+    sponsoredIds: ["thu", "pku", "fudan"]      // schools with a sold sponsored spot (badge + pinned to top)
+  };
+  function partnerUrl(u) {
+    const base = u && u.applyUrl;
+    if (!base || !MON.affiliateTag) return base || "#";
+    try {
+      const host = new URL(base).hostname;
+      const param = MON.affiliateParams[host];
+      if (!param) return base;
+      const sep = base.indexOf("?") >= 0 ? "&" : "?";
+      return base + sep + param + "=" + encodeURIComponent(MON.affiliateTag);
+    } catch (e) { return base; }
+  }
+  function hasPartner(u) { return !!(u && u.applyUrl && MON.affiliateTag); }
+  function isSponsored(u) { return !!(u && MON.sponsoredIds.indexOf(u.id) >= 0); }
+  function leadSubmit(kind, email) {
+    email = (email || "").trim();
+    if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { alert("Please enter a valid email address."); return false; }
+    if (MON.formspreeEndpoint) {
+      fetch(MON.formspreeEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ email: email, source: "studychina-navigator", kind: kind })
+      }).catch(function(){});
+    } else {
+      window.location.href = "mailto:" + MON.contactEmail + "?subject=" +
+        encodeURIComponent("StudyChina reminder signup (" + kind + ")") + "&body=" +
+        encodeURIComponent("Email: " + email + "\nInterest: " + kind);
+    }
+    return true;
+  }
 
   // ---- My Applications: shortlist + compare (persisted locally) ----
   let SHORTLIST = (function(){ try { return JSON.parse(localStorage.getItem("scn_shortlist_v1") || "[]"); } catch(e){ return []; } })();
@@ -657,7 +762,7 @@
         if (!state.csca.every(s => subs.includes(s))) return false;
       }
       return true;
-    });
+    }).sort((a, b) => (isSponsored(b) ? 1 : 0) - (isSponsored(a) ? 1 : 0));
   }
 
   function cardHTML(u) {
@@ -682,12 +787,12 @@
             <p class="text-body-md text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span>${u.nameZh} · ${u.city}</p>
           </div>
         </div>
-        <div class="flex flex-wrap gap-2 items-center">${types}${tierBadge}</div>
+        <div class="flex flex-wrap gap-2 items-center">${types}${tierBadge}${isSponsored(u) ? ` <span class="bg-amber-100 text-amber-800 text-label-sm font-label-sm px-2 py-0.5 rounded-sm">Sponsored</span>` : ""}</div>
         <p class="text-body-md text-on-surface-variant">${u.blurb}</p>
         <div class="flex flex-wrap gap-2">${facts.join("")}</div>
         ${subjects ? `<div class="flex flex-wrap gap-2 items-center"><span class="text-label-sm uppercase text-on-surface-variant">CSCA:</span>${subjects}</div>` : ""}
-        <div class="mt-auto pt-4 border-t border-neutral-divider flex justify-between items-center">
-          <a class="text-secondary font-label-md text-label-md font-semibold hover:text-secondary-container transition-colors" href="${u.applyUrl}" target="_blank" rel="noopener">Official Application →</a>
+        <div class="mt-auto pt-4 border-t border-neutral-divider flex justify-between items-center gap-2">
+          <a class="text-secondary font-label-md text-label-md font-semibold hover:text-secondary-container transition-colors" href="${partnerUrl(u)}" target="_blank" rel="noopener${hasPartner(u) ? " sponsored" : ""}">${hasPartner(u) ? "Apply via partner ↗" : "Official Application →"}</a>
           <button class="text-primary-container font-label-md text-label-md font-semibold hover:text-secondary transition-colors" data-detail="${u.id}">Requirements</button>
         </div>
       </article>`;
@@ -811,6 +916,7 @@
       <div class="flex flex-wrap gap-3 mb-6">
         <a class="bg-primary-container text-on-primary px-6 py-2 rounded text-label-md font-label-md hover:bg-primary transition-colors inline-flex items-center gap-2" href="${u.applyUrl}" target="_blank" rel="noopener"><span class="material-symbols-outlined text-sm">description</span> Official Application</a>
         <a class="border border-primary-container text-primary-container px-6 py-2 rounded text-label-md font-label-md hover:bg-surface transition-colors inline-flex items-center gap-2" href="${u.isoUrl}" target="_blank" rel="noopener"><span class="material-symbols-outlined text-sm">public</span> International Office</a>
+        ${hasPartner(u) ? `<a class="border border-primary-container text-primary-container px-6 py-2 rounded text-label-md font-label-md hover:bg-surface transition-colors inline-flex items-center gap-2" href="${partnerUrl(u)}" target="_blank" rel="noopener sponsored"><span class="material-symbols-outlined text-sm">handshake</span> Apply via partner ↗</a>` : ""}
         <button class="border border-primary-container text-primary-container px-6 py-2 rounded text-label-md font-label-md hover:bg-surface transition-colors inline-flex items-center gap-2 ${isFav(u.id) ? "bg-primary-container text-on-primary" : ""}" id="modalFav">${isFav(u.id) ? "★ Saved to My Applications" : "☆ Track this school"}</button>
       </div>
       ${statsCard}
@@ -1400,6 +1506,7 @@
     CMP_ROWS.forEach(([label, fn]) => {
       html += `<tr><td class="rowhead">${label}</td>` + us.map(u => `<td>${fn(u)}</td>`).join("") + `</tr>`;
     });
+    html += `<tr><td class="rowhead">Apply</td>` + us.map(u => `<td>${hasPartner(u) ? `<a class="text-secondary font-semibold hover:underline" href="${partnerUrl(u)}" target="_blank" rel="noopener sponsored">via partner ↗</a>` : `<a class="text-secondary font-semibold hover:underline" href="${u.applyUrl}" target="_blank" rel="noopener">Official →</a>`}</td>`).join("") + `</tr>`;
     html += "</tbody></table>";
     body.innerHTML = html;
   }
@@ -1420,6 +1527,19 @@
     const days = Math.round((d - now) / 86400000);
     return { days, urgent: days <= 60 };
   }
+
+  // ---- Lead capture forms (monetization: build email list, no login) ----
+  document.querySelectorAll(".lead-form").forEach(function(f) {
+    f.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const input = f.querySelector('input[type="email"]');
+      const email = input ? input.value : "";
+      const kind = f.getAttribute("data-lead") || "general";
+      if (leadSubmit(kind, email)) {
+        f.innerHTML = '<p class="text-body-md text-secondary font-label-md">Thanks — you\'re on the list. We\'ll email you before key deadlines.</p>';
+      }
+    });
+  });
 
   // ---- Init ----
   render();
