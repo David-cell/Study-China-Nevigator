@@ -123,6 +123,9 @@ function uniPage(u) {
   const highlights = list(u.highlights).map((s) => `<li>${esc(s)}</li>`).join('');
   const types = list(u.types).map((t) => `<span class="tag">${esc(t)}</span>`).join('');
 
+  const cscaNote = u.undergrad
+    ? ', and sit the CSCA aptitude assessment if you are applying for undergraduate admission'
+    : '';
   const body = `
 <div class="crumb"><a href="../index.html">Home</a> &rsaquo; <a href="../universities.html">Universities</a> &rsaquo; ${esc(u.city)}</div>
 <h1>${esc(u.nameEn)}</h1><div class="zh">${esc(u.nameZh)}</div>
@@ -145,9 +148,29 @@ function uniPage(u) {
   </dl>
 </div>
 
+<div class="card">
+  <h2>Programs &amp; degrees</h2>
+  <dl class="kv">
+    <dt>Undergraduate</dt><dd>${u.undergrad ? 'Available' : 'Not offered'}</dd>
+    <dt>Graduate</dt><dd>${u.graduate ? 'Master\'s &amp; PhD available' : 'Not offered'}</dd>
+    <dt>English-taught</dt><dd>${esc(u.englishTaught || 'Not specified')}</dd>
+    <dt>CSC scholarships</dt><dd>Eligible — see the <a href="../scholarships.html">scholarship list</a> and the <a href="../guides/csc-2026-guide.html">CSC guide</a>.</dd>
+  </dl>
+</div>
+
 ${strong ? `<div class="card"><h2>Strong subjects</h2><ul>${strong}</ul></div>` : ''}
 ${strengths ? `<div class="card"><h2>Why students choose it</h2><ul>${strengths}</ul></div>` : ''}
 ${highlights ? `<div class="card"><h2>Highlights</h2><ul>${highlights}</ul></div>` : ''}
+
+<div class="card">
+  <h2>How to apply</h2>
+  <ol style="margin:6px 0 0;padding-left:22px">
+    <li>Check eligibility and the language requirement (HSK for Chinese-taught programs, or an English test for English-taught programs).</li>
+    <li>Prepare your documents: notarised transcripts, a study plan, two recommendation letters, and the physical-examination form.</li>
+    <li>Submit through the official portal below${cscaNote}.</li>
+    <li>Track your deadline and wait for the admission notice; apply for a CSC scholarship separately if you are eligible.</li>
+  </ol>
+</div>
 
 <div class="cta">
   <strong>Ready to apply to ${esc(u.nameEn)}?</strong>
