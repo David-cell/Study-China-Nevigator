@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://david-cell.github.io/Study-China-Nevigator/sitemap.xml
+Sitemap: https://csaca.david-cells.com/sitemap.xml
