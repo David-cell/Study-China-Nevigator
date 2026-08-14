@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://csaca.david-cells.com/sitemap.xml
+Sitemap: https://david-cells.com/sitemap.xml

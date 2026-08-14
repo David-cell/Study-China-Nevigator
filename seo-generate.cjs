@@ -19,7 +19,7 @@ const path = require('path');
 const ROOT = __dirname;                       // .../study-china-nav
 const DATA = path.join(ROOT, 'data.js');
 // Live base URL of the GitHub Pages project site (adjust if you move hosts).
-const BASE = 'https://csaca.david-cells.com';
+const BASE = 'https://david-cells.com';
 
 // ---- Load the dataset the same way the browser does, but in Node ----
 const src = fs.readFileSync(DATA, 'utf8');
